@@ -1,0 +1,13 @@
+{
+  "tasks": {
+    "validate": "deno run --allow-read=../addresses,./ validate.ts",
+    "read-network": "deno run --allow-read=../addresses,../../just-foundry/networks,./ --allow-write=../addresses --allow-net --allow-env read-network.ts"
+  },
+  "imports": {
+    "zod": "npm:zod@^4",
+    "viem": "npm:viem@^2",
+    "@std/fs": "jsr:@std/fs@^1",
+    "@std/path": "jsr:@std/path@^1"
+  },
+  "fmt": { "singleQuote": false, "lineWidth": 100 }
+}

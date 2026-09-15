@@ -1,0 +1,161 @@
+{
+  "chainId": 4114,
+  "network": "citrea",
+  "osx": {
+    "versions": [
+      {
+        "protocolVersion": "1.4.0",
+        "core": {
+          "daoFactory": "0x4ca8230abd9427618f3a6bca7c814c0e59821235",
+          "daoRegistry": "0x0e30f6a8119e2528511c7b2d034d89dab1cec6b8",
+          "pluginRepoFactory": "0x5c5e2da0267f99c3c501fb857130154bb08d24b1",
+          "pluginRepoRegistry": "0xaf22be414a2339b5483e47e8c33f4e7b4adb9380",
+          "pluginSetupProcessor": "0xc3a857b614d5b79b936ce6640e5351df8fa262ed"
+        },
+        "helpers": {
+          "globalExecutor": "0xc8837f6b124d8df780f5cf9af343b25643040110",
+          "placeholderSetup": "0x938da6b9b16078a999e33fe4e37b243c40c7680b"
+        }
+      }
+    ],
+    "current": "1.4.0"
+  },
+  "management": {
+    "dao": "0x0e6854fd4c620583432d92dd7e16df9183714f65",
+    "daoMultisig": "0x8dd48c09c1b9f4858d1accbe680c550aafb986ea"
+  },
+  "ens": {
+    "registry": "0xa181d0c138d672345123f145009d44ca324fa20d",
+    "daoSubdomainRegistrar": "0x5595ddb935a84918cb51ee7a4c8cc17a0a8644af",
+    "pluginSubdomainRegistrar": "0x11425722a59eb687edcdee9a402459098c118816",
+    "publicResolver": "0xd8dec173a079dde710b693a3c9088c1b6e5a6047"
+  },
+  "plugins": {
+    "admin": {
+      "repo": "0x7ee0108dfe487d27b5c077e486a88e167321242e",
+      "maintainer": "0x0e6854fd4c620583432d92dd7e16df9183714f65",
+      "versions": [
+        {
+          "release": 1,
+          "build": 1,
+          "setup": "0x938da6b9b16078a999e33fe4e37b243c40c7680b",
+          "implementation": "0x0000000000000000000000000000000000000000"
+        },
+        {
+          "release": 1,
+          "build": 2,
+          "setup": "0x51347a2da9d32024d6cb55db4d777ae7444e1abc",
+          "implementation": "0x8c719ef523c7e8cb3cf03540d6fdf537b0f09f28"
+        }
+      ],
+      "current": {
+        "release": 1,
+        "build": 2
+      }
+    },
+    "multisig": {
+      "repo": "0x7db8d2c9d0caf55dd6e6b94d0b9ba3ef1d40b9fa",
+      "maintainer": "0x0e6854fd4c620583432d92dd7e16df9183714f65",
+      "versions": [
+        {
+          "release": 1,
+          "build": 1,
+          "setup": "0x938da6b9b16078a999e33fe4e37b243c40c7680b",
+          "implementation": "0x0000000000000000000000000000000000000000"
+        },
+        {
+          "release": 1,
+          "build": 2,
+          "setup": "0x938da6b9b16078a999e33fe4e37b243c40c7680b",
+          "implementation": "0x0000000000000000000000000000000000000000"
+        },
+        {
+          "release": 1,
+          "build": 3,
+          "setup": "0x4761a02c13f622d8874f50a80b37548cfe4ed1e1",
+          "implementation": "0xc1c837df268c5734d95cd0e083d57b341298665c"
+        }
+      ],
+      "current": {
+        "release": 1,
+        "build": 3
+      }
+    },
+    "token-voting": {
+      "repo": "0x9a28f7690a2b02829721171364f5bbf0590caab6",
+      "maintainer": "0x0e6854fd4c620583432d92dd7e16df9183714f65",
+      "versions": [
+        {
+          "release": 1,
+          "build": 1,
+          "setup": "0x938da6b9b16078a999e33fe4e37b243c40c7680b",
+          "implementation": "0x0000000000000000000000000000000000000000"
+        },
+        {
+          "release": 1,
+          "build": 2,
+          "setup": "0x938da6b9b16078a999e33fe4e37b243c40c7680b",
+          "implementation": "0x0000000000000000000000000000000000000000"
+        },
+        {
+          "release": 1,
+          "build": 3,
+          "setup": "0x938da6b9b16078a999e33fe4e37b243c40c7680b",
+          "implementation": "0x0000000000000000000000000000000000000000"
+        },
+        {
+          "release": 1,
+          "build": 4,
+          "setup": "0x71d8f6788cea105592861df153f53cb78985899a",
+          "implementation": "0xfba40200f60041db0e1a9ac6cd3cb008c9c8ff0c"
+        }
+      ],
+      "current": {
+        "release": 1,
+        "build": 4
+      }
+    },
+    "spp": {
+      "repo": "0xc016d12087bada6438a45246ad758d58d0a2f844",
+      "maintainer": "0x0e6854fd4c620583432d92dd7e16df9183714f65",
+      "versions": [
+        {
+          "release": 1,
+          "build": 1,
+          "setup": "0xfbe859afb56a51cbed42ea8deef490e0ffbc21b4",
+          "implementation": "0x2d4062324b14fd3f12e215c77949b364cb8341d0"
+        },
+        {
+          "release": 1,
+          "build": 2,
+          "setup": "0xbbf2c47f68a411bce6265814b40d3bb6dac5d069",
+          "implementation": "0x2d4062324b14fd3f12e215c77949b364cb8341d0"
+        }
+      ],
+      "current": {
+        "release": 1,
+        "build": 2
+      }
+    },
+    "lock-to-vote": {
+      "repo": "0x22744e7e38a109618d5a2c8908d0979d00090741",
+      "maintainer": "0x0e6854fd4c620583432d92dd7e16df9183714f65",
+      "versions": [
+        {
+          "release": 1,
+          "build": 1,
+          "setup": "0xeb1b67485c7f801799664094ae3ae7e0ecfef517",
+          "implementation": "0x6d4c65613df37e879ffe59d45c7372274e05a163"
+        }
+      ],
+      "current": {
+        "release": 1,
+        "build": 1
+      }
+    }
+  },
+  "shared": {},
+  "deployers": {
+    "protocolFactory": "0x2d5761eaa2bd254ec3167cf32aa82eee0d819bcd"
+  }
+}
