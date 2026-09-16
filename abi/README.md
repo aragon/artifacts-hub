@@ -44,6 +44,5 @@ import Admin from "./lib/artifacts-hub/abi/admin/Admin.json";
 
 ## Regenerating
 
-See the [root README](../README.md) for `just extract-abi` (one-shot import
-from each upstream component's `abi.ts`) and `just generate-abi` (regenerate
-the `index.ts` files after any hand-edit of the JSONs).
+`just generate-abi` regenerates `abi/**/index.ts` from whatever JSONs are on
+disk. Run it after any hand-edit or fresh drop of an ABI JSON.

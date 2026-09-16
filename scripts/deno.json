@@ -2,7 +2,8 @@
   "tasks": {
     "validate": "deno run --allow-read=../addresses,./ validate.ts",
     "coverage": "deno run --allow-read=../addresses,./ coverage.ts",
-    "ingest": "deno run --allow-read --allow-write --allow-net --allow-env ingest.ts"
+    "ingest": "deno run --allow-read --allow-write --allow-net --allow-env ingest.ts",
+    "generate-abi": "deno run --allow-read --allow-write generate-abi-ts.ts"
   },
   "imports": {
     "zod": "npm:zod@^4",

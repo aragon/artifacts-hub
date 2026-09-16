@@ -18,3 +18,8 @@ coverage *args:
 [group('ingest')]
 ingest *args:
     cd scripts && deno task ingest {{ args }}
+
+# Regenerate abi/<component>/index.ts + abi/index.ts from the JSON files present in abi/
+[group('abi')]
+generate-abi:
+    cd scripts && deno task generate-abi
