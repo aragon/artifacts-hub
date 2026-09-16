@@ -82,6 +82,7 @@ type PfArtifact = {
   ens?: Record<string, string>;
   osx?: Record<string, string>;
   protocolFactory?: string;
+  conditionFactory?: string;
 };
 
 export async function fromProtocolFactory(): Promise<Partial[]> {
@@ -133,7 +134,13 @@ export async function fromProtocolFactory(): Promise<Partial[]> {
           multisig: cp.multisigPluginRepo ? { repo: cp.multisigPluginRepo } : undefined,
           "token-voting": cp.tokenVotingPluginRepo ? { repo: cp.tokenVotingPluginRepo } : undefined,
           spp: cp.stagedProposalProcessorPluginRepo ? { repo: cp.stagedProposalProcessorPluginRepo } : undefined,
+          "lock-to-vote": cp.lockToVotePluginRepo ? { repo: cp.lockToVotePluginRepo } : undefined,
         },
+        // Some PF snapshots (robinhood onward) include a top-level
+        // conditionFactory address alongside the corePlugins.
+        ...(j.conditionFactory
+          ? { conditions: { factories: [{ address: j.conditionFactory }] } }
+          : {}),
         deployers: { protocolFactory: j.protocolFactory },
       } as Partial["fragment"],
     });

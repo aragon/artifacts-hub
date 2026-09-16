@@ -14,7 +14,8 @@
           "pluginSetupProcessor": "0x8c719ef523c7e8cb3cf03540d6fdf537b0f09f28"
         },
         "helpers": {
-          "globalExecutor": "0x4320503ed37a32b918a37d2c9a8edf7202fbaf0c"
+          "globalExecutor": "0x4320503ed37a32b918a37d2c9a8edf7202fbaf0c",
+          "placeholderSetup": "0xc8837f6b124d8df780f5cf9af343b25643040110"
         },
         "current": true
       }
@@ -31,6 +32,20 @@
     "publicResolver": "0x8dd48c09c1b9f4858d1accbe680c550aafb986ea"
   },
   "plugins": {
+    "lock-to-vote": {
+      "repo": "0xf3d83b711c2497448b2393861dbab9a7d7bd03c1",
+      "ens": "lock-2-vote.plugin.dao.eth",
+      "maintainer": "0x016ed68d577f86ceb2640e9da803fce25a16d3be",
+      "versions": [
+        {
+          "release": 1,
+          "build": 1,
+          "setup": "0x8205347df135e74d708c6525de97a73e72a8cde8",
+          "implementation": "0x14d818e1335839fe389b95d27fb0d63938ef40fd",
+          "current": true
+        }
+      ]
+    },
     "admin": {
       "repo": "0x5b126edff0dbdd983068c3e5e1b68324abaffb46",
       "ens": "admin.plugin.dao.eth",
@@ -126,23 +141,16 @@
           "current": true
         }
       ]
-    },
-    "lock-to-vote": {
-      "repo": "0xf3d83b711c2497448b2393861dbab9a7d7bd03c1",
-      "ens": "lock-2-vote.plugin.dao.eth",
-      "maintainer": "0x016ed68d577f86ceb2640e9da803fce25a16d3be",
-      "versions": [
-        {
-          "release": 1,
-          "build": 1,
-          "setup": "0x8205347df135e74d708c6525de97a73e72a8cde8",
-          "implementation": "0x14d818e1335839fe389b95d27fb0d63938ef40fd",
-          "current": true
-        }
-      ]
     }
   },
-  "conditions": {},
+  "conditions": {
+    "factories": [
+      {
+        "address": "0x85ef9798cc403f956860fe23a5545e98dde010f7",
+        "current": true
+      }
+    ]
+  },
   "deployers": {
     "protocolFactory": "0xd20ba7026ae8ea68be846ab790e69e888fec125c"
   }

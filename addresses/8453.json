@@ -112,13 +112,28 @@
       "repo": "0x05eca5ab78493bf812052b0211a206bcba03471b",
       "ens": "lock-2-vote.plugin.dao.eth",
       "maintainer": "0x264308c03feafa071c97b73b09e911530cccd216",
-      "versions": []
+      "versions": [
+        {
+          "release": 1,
+          "build": 1,
+          "setup": "0x66f3b24ba1a23deee4ae89dd31c691eaaa56702f",
+          "implementation": "0xc7fe99e8eaa4fd08da01087d6f699998e71710da",
+          "current": true
+        }
+      ]
     },
     "spp": {
       "repo": "0x3c13098d4e2fe9acb2fceb3ee4fbbe33405ed39d",
       "ens": "staged-proposal-processor.plugin.dao.eth",
       "maintainer": "0x264308c03feafa071c97b73b09e911530cccd216",
-      "versions": []
+      "versions": [
+        {
+          "release": 1,
+          "build": 1,
+          "setup": "0x4391a9c79f901b1c86703d1ae694a04b8624b5c3",
+          "current": true
+        }
+      ]
     }
   },
   "conditions": {

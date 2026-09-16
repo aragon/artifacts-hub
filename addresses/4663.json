@@ -14,7 +14,8 @@
           "pluginSetupProcessor": "0x4ca8230abd9427618f3a6bca7c814c0e59821235"
         },
         "helpers": {
-          "globalExecutor": "0x938da6b9b16078a999e33fe4e37b243c40c7680b"
+          "globalExecutor": "0x938da6b9b16078a999e33fe4e37b243c40c7680b",
+          "placeholderSetup": "0x780b78c283f102d30ea89f2df5b9745361112b51"
         },
         "current": true
       }
@@ -126,9 +127,30 @@
           "current": true
         }
       ]
+    },
+    "lock-to-vote": {
+      "repo": "0x96911f8aadd4015b6d494e5e824ea06bd89bef9b",
+      "ens": "lock-2-vote.plugin.dao.eth",
+      "maintainer": "0x016ed68d577f86ceb2640e9da803fce25a16d3be",
+      "versions": [
+        {
+          "release": 1,
+          "build": 1,
+          "setup": "0x2d4062324b14fd3f12e215c77949b364cb8341d0",
+          "implementation": "0xf84bf1017c71a02ac9a443b59d364e001225fdb4",
+          "current": true
+        }
+      ]
     }
   },
-  "conditions": {},
+  "conditions": {
+    "factories": [
+      {
+        "address": "0x85ef9798cc403f956860fe23a5545e98dde010f7",
+        "current": true
+      }
+    ]
+  },
   "deployers": {
     "protocolFactory": "0xd20ba7026ae8ea68be846ab790e69e888fec125c"
   }

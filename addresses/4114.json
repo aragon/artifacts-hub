@@ -14,7 +14,8 @@
           "pluginSetupProcessor": "0xc3a857b614d5b79b936ce6640e5351df8fa262ed"
         },
         "helpers": {
-          "globalExecutor": "0xc8837f6b124d8df780f5cf9af343b25643040110"
+          "globalExecutor": "0xc8837f6b124d8df780f5cf9af343b25643040110",
+          "placeholderSetup": "0x938da6b9b16078a999e33fe4e37b243c40c7680b"
         },
         "current": true
       }
@@ -113,6 +114,20 @@
         "governanceWrappedERC20": "0xfe3717b672e909eec371bc1c42f89c7090ba40fd"
       }
     },
+    "lock-to-vote": {
+      "repo": "0x22744e7e38a109618d5a2c8908d0979d00090741",
+      "ens": "lock-2-vote.plugin.dao.eth",
+      "maintainer": "0x0e6854fd4c620583432d92dd7e16df9183714f65",
+      "versions": [
+        {
+          "release": 1,
+          "build": 1,
+          "setup": "0xeb1b67485c7f801799664094ae3ae7e0ecfef517",
+          "implementation": "0x6d4c65613df37e879ffe59d45c7372274e05a163",
+          "current": true
+        }
+      ]
+    },
     "spp": {
       "repo": "0xc016d12087bada6438a45246ad758d58d0a2f844",
       "ens": "staged-proposal-processor.plugin.dao.eth",
@@ -129,20 +144,6 @@
           "build": 2,
           "setup": "0xbbf2c47f68a411bce6265814b40d3bb6dac5d069",
           "implementation": "0x2d4062324b14fd3f12e215c77949b364cb8341d0",
-          "current": true
-        }
-      ]
-    },
-    "lock-to-vote": {
-      "repo": "0x22744e7e38a109618d5a2c8908d0979d00090741",
-      "ens": "lock-2-vote.plugin.dao.eth",
-      "maintainer": "0x0e6854fd4c620583432d92dd7e16df9183714f65",
-      "versions": [
-        {
-          "release": 1,
-          "build": 1,
-          "setup": "0xeb1b67485c7f801799664094ae3ae7e0ecfef517",
-          "implementation": "0x6d4c65613df37e879ffe59d45c7372274e05a163",
           "current": true
         }
       ]

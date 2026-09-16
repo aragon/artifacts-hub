@@ -79,8 +79,71 @@
           "current": true
         }
       ]
+    },
+    "admin": {
+      "repo": "0x95d1aca58e631774bde4d1bc67dd784f01ccdaec",
+      "ens": "admin.plugin.dao.eth",
+      "maintainer": "0xb8be55076350164c62ae0cfb69560b0f0a9b8a33",
+      "versions": [
+        {
+          "release": 1,
+          "build": 1,
+          "setup": "0x610cbbe9c9cdd5c9b03afbab19300c4656238f08",
+          "implementation": "0x0000000000000000000000000000000000000000"
+        },
+        {
+          "release": 1,
+          "build": 2,
+          "setup": "0xfc12e57f9f74de60251405f348d82724984c098b",
+          "implementation": "0x67990843718b53b2a6e703e3a531b57d1174144a",
+          "current": true
+        }
+      ]
+    },
+    "token-voting": {
+      "repo": "0xbaff9a7c3bf3e791b3e601ffe5a05c7759f30e5b",
+      "ens": "token-voting.plugin.dao.eth",
+      "maintainer": "0xb8be55076350164c62ae0cfb69560b0f0a9b8a33",
+      "versions": [
+        {
+          "release": 1,
+          "build": 1,
+          "setup": "0x610cbbe9c9cdd5c9b03afbab19300c4656238f08",
+          "implementation": "0x0000000000000000000000000000000000000000"
+        },
+        {
+          "release": 1,
+          "build": 2,
+          "setup": "0x610cbbe9c9cdd5c9b03afbab19300c4656238f08",
+          "implementation": "0x0000000000000000000000000000000000000000"
+        },
+        {
+          "release": 1,
+          "build": 3,
+          "setup": "0x5256e2ffe1e43fe228dd33eeae29b07543bb4f68",
+          "implementation": "0x45a3c1958cc5ff4167d51781988a3e7a2bb556ef"
+        },
+        {
+          "release": 1,
+          "build": 4,
+          "setup": "0xd93d15ddaa6f3730e355d1a0a3afb9fed712f8aa",
+          "implementation": "0x5f9c1ffc551ae5db5a311bfcaa71b7b294b720f6",
+          "current": true
+        }
+      ],
+      "other": {
+        "governanceERC20": "0x21764133e79fa5e390d1e93b66dca99ddfffed2c",
+        "governanceWrappedERC20": "0xb568da7f3e8f9a748004e0dcc0951b9e1b862924"
+      }
     }
   },
-  "conditions": {},
+  "conditions": {
+    "factories": [
+      {
+        "address": "0xe22884a20f9acecb5174cb55f6aa36600c13e87a",
+        "current": true
+      }
+    ]
+  },
   "deployers": {}
 }
