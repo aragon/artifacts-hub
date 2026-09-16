@@ -143,7 +143,14 @@
       ]
     }
   },
-  "conditions": {},
+  "conditions": {
+    "factories": [
+      {
+        "address": "0x62bd83766eda81dba2f8b7dbcc72500bd46cbadd",
+        "current": true
+      }
+    ]
+  },
   "deployers": {
     "protocolFactory": "0x2d4062324b14fd3f12e215c77949b364cb8341d0"
   }
