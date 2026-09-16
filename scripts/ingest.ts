@@ -94,9 +94,6 @@ async function main() {
       publicResolver: d.publicResolver,
     },
     plugins: {},
-    ...(d.conditionFactory
-      ? { conditions: { factories: [{ address: d.conditionFactory, current: true }] } }
-      : {}),
     deployers: { protocolFactory },
   };
 

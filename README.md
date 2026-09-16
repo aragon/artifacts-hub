@@ -1,15 +1,23 @@
-# artifacts
+# Artifacts Hub
 
 Canonical address book for Aragon deployments across every chain the protocol runs on.
 One file per chain, always at `addresses/<chainId>.json`; each has a `<network>.json`
 symlink pointing at it so humans can grep by name.
 
-## Consuming
+## Get started
+
+Vendor this repo as a git submodule under `lib/` (or wherever fits your layout)
+and import the JSON files directly:
+
+```bash
+git submodule add https://github.com/aragon/artifacts-hub lib/artifacts-hub
+```
 
 ```ts
-import citrea from "aragon/artifacts/addresses/4114.json";
-// or:
-import citrea from "aragon/artifacts/addresses/citrea.json";
+// by chainId
+import citrea from "./lib/artifacts-hub/addresses/4114.json";
+// or by network name (via the same-directory symlink)
+import citrea from "./lib/artifacts-hub/addresses/citrea.json";
 ```
 
 Every file has the same shape (see `scripts/schema.ts` for the Zod source of

@@ -36,13 +36,11 @@ export const OsxCore = z
 // Singleton helpers deployed alongside a specific OSx version. Not part of core:
 // they're auxiliary contracts protocol-factory installs to smooth out plugin
 // installation (placeholderSetup) and delegatecall execution (globalExecutor).
-// Extendable via free-form keys as new helpers appear across versions.
 export const OsxHelpers = z
   .object({
     globalExecutor: Address.optional(),
     placeholderSetup: Address.optional(),
   })
-  .catchall(Address)
   .default({});
 
 // One OSx protocol version snapshot. protocolVersion is the string returned by
@@ -135,7 +133,7 @@ export const Conditions = z
   .object({
     factories: z.array(ConditionFactoryVersion).default([]),
   })
-  .default({});
+  .default({ factories: [] });
 
 // Per-chain address book. Only chainId + network are strictly required; every
 // other section defaults to empty so a partially populated chain still validates.

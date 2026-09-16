@@ -5,16 +5,13 @@ import { createPublicClient, http, parseAbi, type Address } from "viem";
 //   buildCount(uint8 release) → uint256
 //   getVersion(Tag) → Version { Tag(release, build), address pluginSetup, bytes buildMetadata }
 // Each PluginSetup then has an `implementation()` getter returning the plugin impl.
-const repoAbi = parseAbi([
-  "function latestRelease() view returns (uint8)",
-  "function buildCount(uint8 release) view returns (uint256)",
-  "function getVersion((uint8 release, uint16 build) tag) view returns " +
-    "(((uint8 release, uint16 build) tag, address pluginSetup, bytes buildMetadata))",
+// Split into single-function abis so viem's per-call type narrowing works cleanly.
+const latestReleaseAbi = parseAbi(["function latestRelease() view returns (uint8)"]);
+const buildCountAbi = parseAbi(["function buildCount(uint8 release) view returns (uint256)"]);
+const getVersionAbi = parseAbi([
+  "function getVersion((uint8 release, uint16 build) tag) view returns (((uint8 release, uint16 build) tag, address pluginSetup, bytes buildMetadata))",
 ]);
-
-const setupAbi = parseAbi([
-  "function implementation() view returns (address)",
-]);
+const setupAbi = parseAbi(["function implementation() view returns (address)"]);
 
 export type OnChainVersion = {
   release: number;
@@ -32,32 +29,21 @@ export async function readAllPluginRepoVersions(
   repo: Address,
 ): Promise<OnChainVersion[]> {
   const client = createPublicClient({ transport: http(rpcUrl) });
-  const latest = (await client.readContract({
-    address: repo,
-    abi: repoAbi,
-    functionName: "latestRelease",
-  })) as number;
+  const latest = await client.readContract({
+    address: repo, abi: latestReleaseAbi, functionName: "latestRelease",
+  });
 
   const versions: OnChainVersion[] = [];
   for (let r = 1; r <= latest; r++) {
-    const buildCount = (await client.readContract({
-      address: repo,
-      abi: repoAbi,
-      functionName: "buildCount",
-      args: [r],
-    })) as bigint;
+    const buildCount = await client.readContract({
+      address: repo, abi: buildCountAbi, functionName: "buildCount", args: [r],
+    });
 
     for (let b = 1; b <= Number(buildCount); b++) {
-      const version = (await client.readContract({
-        address: repo,
-        abi: repoAbi,
-        functionName: "getVersion",
+      const version = await client.readContract({
+        address: repo, abi: getVersionAbi, functionName: "getVersion",
         args: [{ release: r, build: b }],
-      })) as {
-        tag: { release: number; build: number };
-        pluginSetup: Address;
-        buildMetadata: string;
-      };
+      });
 
       // Best-effort: implementation() only exists on PluginSetups that expose
       // a distinct impl. Missing here just means we won't populate the field.
