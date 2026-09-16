@@ -14,12 +14,7 @@ validate:
 coverage *args:
     cd scripts && deno task coverage {{ args }}
 
-# Ingest every upstream address source, enrich on-chain, write addresses/<chainId>.json
+# Ingest a chain from its ProtocolFactory (usage: just ingest <chainId> <rpc> <pf> [network])
 [group('ingest')]
-sync *args:
-    cd scripts && deno task sync {{ args }}
-
-# Read one chain via ProtocolFactory.getDeployment() (usage: just read-network <chainId> [<rpc> <pf>])
-[group('ingest')]
-read-network *args:
-    cd scripts && deno task read-network {{ args }}
+ingest *args:
+    cd scripts && deno task ingest {{ args }}

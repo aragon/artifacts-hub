@@ -1,9 +1,8 @@
 {
   "tasks": {
     "validate": "deno run --allow-read=../addresses,./ validate.ts",
-    "read-network": "deno run --allow-read=../addresses,../../just-foundry/networks,./ --allow-write=../addresses --allow-net --allow-env read-network.ts",
-    "sync": "deno run --allow-read --allow-write --allow-net --allow-env sync.ts",
-    "coverage": "deno run --allow-read=../addresses,../../just-foundry/networks,./ coverage.ts"
+    "coverage": "deno run --allow-read=../addresses,./ coverage.ts",
+    "ingest": "deno run --allow-read --allow-write --allow-net --allow-env ingest.ts"
   },
   "imports": {
     "zod": "npm:zod@^4",
