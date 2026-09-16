@@ -1,0 +1,13 @@
+[
+  {
+    "type": "error",
+    "name": "InvalidDomain",
+    "inputs": [
+      {
+        "name": "domain",
+        "type": "string",
+        "internalType": "string"
+      }
+    ]
+  }
+]

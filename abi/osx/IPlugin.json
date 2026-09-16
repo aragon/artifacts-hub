@@ -1,0 +1,15 @@
+[
+  {
+    "type": "function",
+    "name": "pluginType",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint8",
+        "internalType": "enum IPlugin.PluginType"
+      }
+    ],
+    "stateMutability": "view"
+  }
+]

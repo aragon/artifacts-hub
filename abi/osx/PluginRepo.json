@@ -1,0 +1,951 @@
+[
+  {
+    "type": "constructor",
+    "inputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "MAINTAINER_PERMISSION_ID",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "ROOT_PERMISSION_ID",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "UPGRADE_REPO_PERMISSION_ID",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "applyMultiTargetPermissions",
+    "inputs": [
+      {
+        "name": "_items",
+        "type": "tuple[]",
+        "internalType": "struct PermissionLib.MultiTargetPermission[]",
+        "components": [
+          {
+            "name": "operation",
+            "type": "uint8",
+            "internalType": "enum PermissionLib.Operation"
+          },
+          {
+            "name": "where",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "who",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "condition",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "permissionId",
+            "type": "bytes32",
+            "internalType": "bytes32"
+          }
+        ]
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "applySingleTargetPermissions",
+    "inputs": [
+      {
+        "name": "_where",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "items",
+        "type": "tuple[]",
+        "internalType": "struct PermissionLib.SingleTargetPermission[]",
+        "components": [
+          {
+            "name": "operation",
+            "type": "uint8",
+            "internalType": "enum PermissionLib.Operation"
+          },
+          {
+            "name": "who",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "permissionId",
+            "type": "bytes32",
+            "internalType": "bytes32"
+          }
+        ]
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "buildCount",
+    "inputs": [
+      {
+        "name": "_release",
+        "type": "uint8",
+        "internalType": "uint8"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "createVersion",
+    "inputs": [
+      {
+        "name": "_release",
+        "type": "uint8",
+        "internalType": "uint8"
+      },
+      {
+        "name": "_pluginSetup",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "_buildMetadata",
+        "type": "bytes",
+        "internalType": "bytes"
+      },
+      {
+        "name": "_releaseMetadata",
+        "type": "bytes",
+        "internalType": "bytes"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "getLatestVersion",
+    "inputs": [
+      {
+        "name": "_pluginSetup",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "tuple",
+        "internalType": "struct PluginRepo.Version",
+        "components": [
+          {
+            "name": "tag",
+            "type": "tuple",
+            "internalType": "struct PluginRepo.Tag",
+            "components": [
+              {
+                "name": "release",
+                "type": "uint8",
+                "internalType": "uint8"
+              },
+              {
+                "name": "build",
+                "type": "uint16",
+                "internalType": "uint16"
+              }
+            ]
+          },
+          {
+            "name": "pluginSetup",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "buildMetadata",
+            "type": "bytes",
+            "internalType": "bytes"
+          }
+        ]
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getLatestVersion",
+    "inputs": [
+      {
+        "name": "_release",
+        "type": "uint8",
+        "internalType": "uint8"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "tuple",
+        "internalType": "struct PluginRepo.Version",
+        "components": [
+          {
+            "name": "tag",
+            "type": "tuple",
+            "internalType": "struct PluginRepo.Tag",
+            "components": [
+              {
+                "name": "release",
+                "type": "uint8",
+                "internalType": "uint8"
+              },
+              {
+                "name": "build",
+                "type": "uint16",
+                "internalType": "uint16"
+              }
+            ]
+          },
+          {
+            "name": "pluginSetup",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "buildMetadata",
+            "type": "bytes",
+            "internalType": "bytes"
+          }
+        ]
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getVersion",
+    "inputs": [
+      {
+        "name": "_tagHash",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "tuple",
+        "internalType": "struct PluginRepo.Version",
+        "components": [
+          {
+            "name": "tag",
+            "type": "tuple",
+            "internalType": "struct PluginRepo.Tag",
+            "components": [
+              {
+                "name": "release",
+                "type": "uint8",
+                "internalType": "uint8"
+              },
+              {
+                "name": "build",
+                "type": "uint16",
+                "internalType": "uint16"
+              }
+            ]
+          },
+          {
+            "name": "pluginSetup",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "buildMetadata",
+            "type": "bytes",
+            "internalType": "bytes"
+          }
+        ]
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getVersion",
+    "inputs": [
+      {
+        "name": "_tag",
+        "type": "tuple",
+        "internalType": "struct PluginRepo.Tag",
+        "components": [
+          {
+            "name": "release",
+            "type": "uint8",
+            "internalType": "uint8"
+          },
+          {
+            "name": "build",
+            "type": "uint16",
+            "internalType": "uint16"
+          }
+        ]
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "tuple",
+        "internalType": "struct PluginRepo.Version",
+        "components": [
+          {
+            "name": "tag",
+            "type": "tuple",
+            "internalType": "struct PluginRepo.Tag",
+            "components": [
+              {
+                "name": "release",
+                "type": "uint8",
+                "internalType": "uint8"
+              },
+              {
+                "name": "build",
+                "type": "uint16",
+                "internalType": "uint16"
+              }
+            ]
+          },
+          {
+            "name": "pluginSetup",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "buildMetadata",
+            "type": "bytes",
+            "internalType": "bytes"
+          }
+        ]
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "grant",
+    "inputs": [
+      {
+        "name": "_where",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "_who",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "_permissionId",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "grantWithCondition",
+    "inputs": [
+      {
+        "name": "_where",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "_who",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "_permissionId",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      },
+      {
+        "name": "_condition",
+        "type": "address",
+        "internalType": "contract IPermissionCondition"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "initialize",
+    "inputs": [
+      {
+        "name": "initialOwner",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "initializeFrom",
+    "inputs": [
+      {
+        "name": "_previousProtocolVersion",
+        "type": "uint8[3]",
+        "internalType": "uint8[3]"
+      },
+      {
+        "name": "_initData",
+        "type": "bytes",
+        "internalType": "bytes"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "isGranted",
+    "inputs": [
+      {
+        "name": "_where",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "_who",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "_permissionId",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      },
+      {
+        "name": "_data",
+        "type": "bytes",
+        "internalType": "bytes"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool",
+        "internalType": "bool"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "latestRelease",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint8",
+        "internalType": "uint8"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "protocolVersion",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint8[3]",
+        "internalType": "uint8[3]"
+      }
+    ],
+    "stateMutability": "pure"
+  },
+  {
+    "type": "function",
+    "name": "proxiableUUID",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "revoke",
+    "inputs": [
+      {
+        "name": "_where",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "_who",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "_permissionId",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "supportsInterface",
+    "inputs": [
+      {
+        "name": "_interfaceId",
+        "type": "bytes4",
+        "internalType": "bytes4"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool",
+        "internalType": "bool"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "updateReleaseMetadata",
+    "inputs": [
+      {
+        "name": "_release",
+        "type": "uint8",
+        "internalType": "uint8"
+      },
+      {
+        "name": "_releaseMetadata",
+        "type": "bytes",
+        "internalType": "bytes"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "upgradeTo",
+    "inputs": [
+      {
+        "name": "newImplementation",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "upgradeToAndCall",
+    "inputs": [
+      {
+        "name": "newImplementation",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "data",
+        "type": "bytes",
+        "internalType": "bytes"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "payable"
+  },
+  {
+    "type": "event",
+    "name": "AdminChanged",
+    "inputs": [
+      {
+        "name": "previousAdmin",
+        "type": "address",
+        "indexed": false,
+        "internalType": "address"
+      },
+      {
+        "name": "newAdmin",
+        "type": "address",
+        "indexed": false,
+        "internalType": "address"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "BeaconUpgraded",
+    "inputs": [
+      {
+        "name": "beacon",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "Granted",
+    "inputs": [
+      {
+        "name": "permissionId",
+        "type": "bytes32",
+        "indexed": true,
+        "internalType": "bytes32"
+      },
+      {
+        "name": "here",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "where",
+        "type": "address",
+        "indexed": false,
+        "internalType": "address"
+      },
+      {
+        "name": "who",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "condition",
+        "type": "address",
+        "indexed": false,
+        "internalType": "address"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "Initialized",
+    "inputs": [
+      {
+        "name": "version",
+        "type": "uint8",
+        "indexed": false,
+        "internalType": "uint8"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "ReleaseMetadataUpdated",
+    "inputs": [
+      {
+        "name": "release",
+        "type": "uint8",
+        "indexed": false,
+        "internalType": "uint8"
+      },
+      {
+        "name": "releaseMetadata",
+        "type": "bytes",
+        "indexed": false,
+        "internalType": "bytes"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "Revoked",
+    "inputs": [
+      {
+        "name": "permissionId",
+        "type": "bytes32",
+        "indexed": true,
+        "internalType": "bytes32"
+      },
+      {
+        "name": "here",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "where",
+        "type": "address",
+        "indexed": false,
+        "internalType": "address"
+      },
+      {
+        "name": "who",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "Upgraded",
+    "inputs": [
+      {
+        "name": "implementation",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "VersionCreated",
+    "inputs": [
+      {
+        "name": "release",
+        "type": "uint8",
+        "indexed": false,
+        "internalType": "uint8"
+      },
+      {
+        "name": "build",
+        "type": "uint16",
+        "indexed": false,
+        "internalType": "uint16"
+      },
+      {
+        "name": "pluginSetup",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "buildMetadata",
+        "type": "bytes",
+        "indexed": false,
+        "internalType": "bytes"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "error",
+    "name": "AnyAddressDisallowedForWhoAndWhere",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "ConditionInterfaceNotSupported",
+    "inputs": [
+      {
+        "name": "condition",
+        "type": "address",
+        "internalType": "contract IPermissionCondition"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "ConditionNotAContract",
+    "inputs": [
+      {
+        "name": "condition",
+        "type": "address",
+        "internalType": "contract IPermissionCondition"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "EmptyReleaseMetadata",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "GrantWithConditionNotSupported",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidPluginSetupInterface",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidReleaseIncrement",
+    "inputs": [
+      {
+        "name": "latestRelease",
+        "type": "uint8",
+        "internalType": "uint8"
+      },
+      {
+        "name": "newRelease",
+        "type": "uint8",
+        "internalType": "uint8"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "PermissionAlreadyGrantedForDifferentCondition",
+    "inputs": [
+      {
+        "name": "where",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "who",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "permissionId",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      },
+      {
+        "name": "currentCondition",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "newCondition",
+        "type": "address",
+        "internalType": "address"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "PermissionsForAnyAddressDisallowed",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "PluginSetupAlreadyInPreviousRelease",
+    "inputs": [
+      {
+        "name": "release",
+        "type": "uint8",
+        "internalType": "uint8"
+      },
+      {
+        "name": "build",
+        "type": "uint16",
+        "internalType": "uint16"
+      },
+      {
+        "name": "pluginSetup",
+        "type": "address",
+        "internalType": "address"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "ReleaseDoesNotExist",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "ReleaseZeroNotAllowed",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "Unauthorized",
+    "inputs": [
+      {
+        "name": "where",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "who",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "permissionId",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "VersionHashDoesNotExist",
+    "inputs": [
+      {
+        "name": "versionHash",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      }
+    ]
+  }
+]

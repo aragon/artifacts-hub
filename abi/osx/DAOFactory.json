@@ -1,0 +1,232 @@
+[
+  {
+    "type": "constructor",
+    "inputs": [
+      {
+        "name": "_registry",
+        "type": "address",
+        "internalType": "contract DAORegistry"
+      },
+      {
+        "name": "_pluginSetupProcessor",
+        "type": "address",
+        "internalType": "contract PluginSetupProcessor"
+      }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "createDao",
+    "inputs": [
+      {
+        "name": "_daoSettings",
+        "type": "tuple",
+        "internalType": "struct DAOFactory.DAOSettings",
+        "components": [
+          {
+            "name": "trustedForwarder",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "daoURI",
+            "type": "string",
+            "internalType": "string"
+          },
+          {
+            "name": "subdomain",
+            "type": "string",
+            "internalType": "string"
+          },
+          {
+            "name": "metadata",
+            "type": "bytes",
+            "internalType": "bytes"
+          }
+        ]
+      },
+      {
+        "name": "_pluginSettings",
+        "type": "tuple[]",
+        "internalType": "struct DAOFactory.PluginSettings[]",
+        "components": [
+          {
+            "name": "pluginSetupRef",
+            "type": "tuple",
+            "internalType": "struct PluginSetupRef",
+            "components": [
+              {
+                "name": "versionTag",
+                "type": "tuple",
+                "internalType": "struct PluginRepo.Tag",
+                "components": [
+                  {
+                    "name": "release",
+                    "type": "uint8",
+                    "internalType": "uint8"
+                  },
+                  {
+                    "name": "build",
+                    "type": "uint16",
+                    "internalType": "uint16"
+                  }
+                ]
+              },
+              {
+                "name": "pluginSetupRepo",
+                "type": "address",
+                "internalType": "contract PluginRepo"
+              }
+            ]
+          },
+          {
+            "name": "data",
+            "type": "bytes",
+            "internalType": "bytes"
+          }
+        ]
+      }
+    ],
+    "outputs": [
+      {
+        "name": "createdDao",
+        "type": "address",
+        "internalType": "contract DAO"
+      },
+      {
+        "name": "installedPlugins",
+        "type": "tuple[]",
+        "internalType": "struct DAOFactory.InstalledPlugin[]",
+        "components": [
+          {
+            "name": "plugin",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "preparedSetupData",
+            "type": "tuple",
+            "internalType": "struct IPluginSetup.PreparedSetupData",
+            "components": [
+              {
+                "name": "helpers",
+                "type": "address[]",
+                "internalType": "address[]"
+              },
+              {
+                "name": "permissions",
+                "type": "tuple[]",
+                "internalType": "struct PermissionLib.MultiTargetPermission[]",
+                "components": [
+                  {
+                    "name": "operation",
+                    "type": "uint8",
+                    "internalType": "enum PermissionLib.Operation"
+                  },
+                  {
+                    "name": "where",
+                    "type": "address",
+                    "internalType": "address"
+                  },
+                  {
+                    "name": "who",
+                    "type": "address",
+                    "internalType": "address"
+                  },
+                  {
+                    "name": "condition",
+                    "type": "address",
+                    "internalType": "address"
+                  },
+                  {
+                    "name": "permissionId",
+                    "type": "bytes32",
+                    "internalType": "bytes32"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "daoBase",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "daoRegistry",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "contract DAORegistry"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "pluginSetupProcessor",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "contract PluginSetupProcessor"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "protocolVersion",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint8[3]",
+        "internalType": "uint8[3]"
+      }
+    ],
+    "stateMutability": "pure"
+  },
+  {
+    "type": "function",
+    "name": "supportsInterface",
+    "inputs": [
+      {
+        "name": "_interfaceId",
+        "type": "bytes4",
+        "internalType": "bytes4"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool",
+        "internalType": "bool"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "error",
+    "name": "NoPluginProvided",
+    "inputs": []
+  }
+]

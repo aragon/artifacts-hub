@@ -1,0 +1,209 @@
+[
+  {
+    "type": "error",
+    "name": "BodyResultTypeNotSet",
+    "inputs": [
+      {
+        "name": "body",
+        "type": "address",
+        "internalType": "address"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "DuplicateBodyAddress",
+    "inputs": [
+      {
+        "name": "stageId",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "body",
+        "type": "address",
+        "internalType": "address"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "EmptyMetadata",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "IncorrectActionCount",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InsufficientGas",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InterfaceNotSupported",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidCustomParamsForFirstStage",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "NonexistentProposal",
+    "inputs": [
+      {
+        "name": "proposalId",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "ProposalAdvanceForbidden",
+    "inputs": [
+      {
+        "name": "proposalId",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "ProposalAlreadyCancelled",
+    "inputs": [
+      {
+        "name": "proposalId",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "ProposalAlreadyExists",
+    "inputs": [
+      {
+        "name": "proposalId",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "ProposalCanNotBeCancelled",
+    "inputs": [
+      {
+        "name": "proposalId",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "stageId",
+        "type": "uint16",
+        "internalType": "uint16"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "ProposalCanNotBeEdited",
+    "inputs": [
+      {
+        "name": "proposalId",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "stageId",
+        "type": "uint16",
+        "internalType": "uint16"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "ProposalExecutionForbidden",
+    "inputs": [
+      {
+        "name": "proposalId",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "StageCountZero",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "StageDurationsInvalid",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "StageIdInvalid",
+    "inputs": [
+      {
+        "name": "currentStageId",
+        "type": "uint64",
+        "internalType": "uint64"
+      },
+      {
+        "name": "reportedStageId",
+        "type": "uint64",
+        "internalType": "uint64"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "StageThresholdsInvalid",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "StartDateInvalid",
+    "inputs": [
+      {
+        "name": "",
+        "type": "uint64",
+        "internalType": "uint64"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "Uint16MaxSizeExceeded",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "UnexpectedProposalState",
+    "inputs": [
+      {
+        "name": "proposalId",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "currentState",
+        "type": "uint8",
+        "internalType": "uint8"
+      },
+      {
+        "name": "allowedStates",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      }
+    ]
+  }
+]
