@@ -24,7 +24,12 @@
     "dao": "0xf3aaa3372ebbf01b923a4cc98cd847126b3d73ca",
     "daoMultisig": "0x02bbc496bebc9a06c239670cea663c43cead899f"
   },
-  "ens": {},
+  "ens": {
+    "registry": "0x9277acd65b5dc0f85867dfd40f5488be8d47ad18",
+    "daoSubdomainRegistrar": "0x57bf333951967a0cc0afcd58fc7959ca0eae6905",
+    "pluginSubdomainRegistrar": "0x6115b7f05ccef2d883ab64c88ba7e4bd1b877215",
+    "publicResolver": "0xc4ddbd0472c2688f5d278dafc02e66ee176c8de3"
+  },
   "plugins": {
     "admin": {
       "repo": "0x326a2aee6a8ee78d79e7e956de60c6e452f76a8e",
