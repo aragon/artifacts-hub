@@ -46,6 +46,42 @@
         }
       ]
     },
+    "token-voting": {
+      "repo": "0x62c82a443692a1be4d0421b1e4678f0dff8f3c1b",
+      "ens": "token-voting.plugin.dao.eth",
+      "maintainer": "0x0d2efc71d53dc73cb2bc0825ab90e4039426f68e",
+      "versions": [
+        {
+          "release": 1,
+          "build": 1,
+          "setup": "0x7f190dc1797036c583a8eb21618759e80e1078bf",
+          "implementation": "0x0000000000000000000000000000000000000000"
+        },
+        {
+          "release": 1,
+          "build": 2,
+          "setup": "0x7f190dc1797036c583a8eb21618759e80e1078bf",
+          "implementation": "0x0000000000000000000000000000000000000000"
+        },
+        {
+          "release": 1,
+          "build": 3,
+          "setup": "0x8be2ee0f8e91fd62eba8ce80facca49af4b21856",
+          "implementation": "0x5ab6bdf46e66b62184c7f3e1202776e4b9cc23cc"
+        },
+        {
+          "release": 1,
+          "build": 4,
+          "setup": "0x5b30039d497eda801b1abc993a44b35689b27656",
+          "implementation": "0x149aaef5ffda32d6ac2ce127d04ff0cf51b4a4ad",
+          "current": true
+        }
+      ],
+      "other": {
+        "governanceERC20": "0xe2bd48f86c7e3f6b7bc52fcb3f5d2d2c020faeda",
+        "governanceWrappedERC20": "0x39c2de72b595a9a985cffe9c315bdedd8965dafb"
+      }
+    },
     "admin": {
       "repo": "0x339541b013f0edaa5e415788b094b7647b43c921",
       "ens": "admin.plugin.dao.eth",
@@ -91,42 +127,6 @@
           "current": true
         }
       ]
-    },
-    "token-voting": {
-      "repo": "0x62c82a443692a1be4d0421b1e4678f0dff8f3c1b",
-      "ens": "token-voting.plugin.dao.eth",
-      "maintainer": "0x0d2efc71d53dc73cb2bc0825ab90e4039426f68e",
-      "versions": [
-        {
-          "release": 1,
-          "build": 1,
-          "setup": "0x7f190dc1797036c583a8eb21618759e80e1078bf",
-          "implementation": "0x0000000000000000000000000000000000000000"
-        },
-        {
-          "release": 1,
-          "build": 2,
-          "setup": "0x7f190dc1797036c583a8eb21618759e80e1078bf",
-          "implementation": "0x0000000000000000000000000000000000000000"
-        },
-        {
-          "release": 1,
-          "build": 3,
-          "setup": "0x8be2ee0f8e91fd62eba8ce80facca49af4b21856",
-          "implementation": "0x5ab6bdf46e66b62184c7f3e1202776e4b9cc23cc"
-        },
-        {
-          "release": 1,
-          "build": 4,
-          "setup": "0x5b30039d497eda801b1abc993a44b35689b27656",
-          "implementation": "0x149aaef5ffda32d6ac2ce127d04ff0cf51b4a4ad",
-          "current": true
-        }
-      ],
-      "other": {
-        "governanceERC20": "0xe2bd48f86c7e3f6b7bc52fcb3f5d2d2c020faeda",
-        "governanceWrappedERC20": "0x39c2de72b595a9a985cffe9c315bdedd8965dafb"
-      }
     },
     "spp": {
       "repo": "0x48cebbc661fafcfc274ce2034a04d459ba774e3d",

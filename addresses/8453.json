@@ -131,6 +131,7 @@
           "release": 1,
           "build": 1,
           "setup": "0x4391a9c79f901b1c86703d1ae694a04b8624b5c3",
+          "implementation": "0x29a253847b97c9c06fe7fe7e7a0271a5b796334a",
           "current": true
         }
       ]
