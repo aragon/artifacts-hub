@@ -1,0 +1,149 @@
+{
+  "chainId": 43111,
+  "network": "hemi",
+  "osx": {
+    "versions": [
+      {
+        "protocolVersion": "1.4.0",
+        "core": {
+          "daoBase": "0xbe0ac805395e9ceac1f445cde380b23b86fa3742",
+          "daoFactory": "0xf4f964d5d9d612322e0da27d3a4e934bc3addf1a",
+          "daoRegistry": "0x458112b8f2b9c69c889800d138f306bfa0d143d7",
+          "pluginRepoFactory": "0xc24b90fe004c6288ab136a40d43fd9d1bcc1f21e",
+          "pluginRepoRegistry": "0x3bfaa21f807f9ec8a053acbb8f9f659520c0bf86",
+          "pluginSetupProcessor": "0x4ca8230abd9427618f3a6bca7c814c0e59821235"
+        },
+        "helpers": {
+          "globalExecutor": "0x938da6b9b16078a999e33fe4e37b243c40c7680b"
+        },
+        "current": true
+      }
+    ]
+  },
+  "management": {
+    "dao": "0xf84bf1017c71a02ac9a443b59d364e001225fdb4",
+    "daoMultisig": "0xd8dec173a079dde710b693a3c9088c1b6e5a6047"
+  },
+  "ens": {
+    "registry": "0x8a788f1daa51b1a31bee0de197d06b7c084f8961",
+    "daoSubdomainRegistrar": "0xab8a667a16eb61661f57a7adfcbea53a3a2a2fee",
+    "pluginSubdomainRegistrar": "0xb3d57c0576225f4545344b8f0c3782e2873d23ef",
+    "publicResolver": "0xd330979d4cf214661b23a95dfd04440bfa09e741"
+  },
+  "plugins": {
+    "admin": {
+      "repo": "0x95d1aca58e631774bde4d1bc67dd784f01ccdaec",
+      "ens": "admin.plugin.dao.eth",
+      "maintainer": "0xf84bf1017c71a02ac9a443b59d364e001225fdb4",
+      "versions": [
+        {
+          "release": 1,
+          "build": 1,
+          "setup": "0x610cbbe9c9cdd5c9b03afbab19300c4656238f08",
+          "implementation": "0x0000000000000000000000000000000000000000"
+        },
+        {
+          "release": 1,
+          "build": 2,
+          "setup": "0xfc12e57f9f74de60251405f348d82724984c098b",
+          "implementation": "0x67990843718b53b2a6e703e3a531b57d1174144a",
+          "current": true
+        }
+      ]
+    },
+    "multisig": {
+      "repo": "0x5596451d7edea4cba96a181c5b8a31b93a62f7df",
+      "ens": "multisig.plugin.dao.eth",
+      "maintainer": "0xf84bf1017c71a02ac9a443b59d364e001225fdb4",
+      "versions": [
+        {
+          "release": 1,
+          "build": 1,
+          "setup": "0x610cbbe9c9cdd5c9b03afbab19300c4656238f08",
+          "implementation": "0x0000000000000000000000000000000000000000"
+        },
+        {
+          "release": 1,
+          "build": 2,
+          "setup": "0x610cbbe9c9cdd5c9b03afbab19300c4656238f08",
+          "implementation": "0x0000000000000000000000000000000000000000"
+        },
+        {
+          "release": 1,
+          "build": 3,
+          "setup": "0x99e8cea1050d19fa5b35baf9b5524f68839fb685",
+          "implementation": "0x9a09363c4b886025f9182e10b1081690b0b498d0",
+          "current": true
+        }
+      ]
+    },
+    "token-voting": {
+      "repo": "0xbaff9a7c3bf3e791b3e601ffe5a05c7759f30e5b",
+      "ens": "token-voting.plugin.dao.eth",
+      "maintainer": "0xf84bf1017c71a02ac9a443b59d364e001225fdb4",
+      "versions": [
+        {
+          "release": 1,
+          "build": 1,
+          "setup": "0x610cbbe9c9cdd5c9b03afbab19300c4656238f08",
+          "implementation": "0x0000000000000000000000000000000000000000"
+        },
+        {
+          "release": 1,
+          "build": 2,
+          "setup": "0x610cbbe9c9cdd5c9b03afbab19300c4656238f08",
+          "implementation": "0x0000000000000000000000000000000000000000"
+        },
+        {
+          "release": 1,
+          "build": 3,
+          "setup": "0x610cbbe9c9cdd5c9b03afbab19300c4656238f08",
+          "implementation": "0x0000000000000000000000000000000000000000"
+        },
+        {
+          "release": 1,
+          "build": 4,
+          "setup": "0x5256e2ffe1e43fe228dd33eeae29b07543bb4f68",
+          "implementation": "0x45a3c1958cc5ff4167d51781988a3e7a2bb556ef",
+          "current": true
+        }
+      ],
+      "other": {
+        "governanceERC20": "0x8f9389b1c4c79c9b15c5ad52cbfca9bc271ae33c",
+        "governanceWrappedERC20": "0x490fbfa3266462c1990d671cc961e025e599d5cd"
+      }
+    },
+    "spp": {
+      "repo": "0x90fa4993849f2b0063bec161e28f1183e6a3d054",
+      "ens": "staged-proposal-processor.plugin.dao.eth",
+      "maintainer": "0xf84bf1017c71a02ac9a443b59d364e001225fdb4",
+      "versions": [
+        {
+          "release": 1,
+          "build": 1,
+          "setup": "0x089cc95fe03be5d6451af638a71cf24a48877a5c",
+          "implementation": "0x6ab6528e0d5a0f7c5738adfe6bc92dabc501d506",
+          "current": true
+        }
+      ]
+    },
+    "lock-to-vote": {
+      "repo": "0x96911f8aadd4015b6d494e5e824ea06bd89bef9b",
+      "ens": "lock-2-vote.plugin.dao.eth",
+      "maintainer": "0xf84bf1017c71a02ac9a443b59d364e001225fdb4",
+      "versions": [
+        {
+          "release": 1,
+          "build": 1,
+          "setup": "0x150d61ddc7a6df80fe2d3f7b7f58b36b69b25fdb",
+          "implementation": "0x4fad9e07f48ce33d42198e797f7e4e439d2f6e2b",
+          "current": true
+        }
+      ]
+    }
+  },
+  "conditions": {},
+  "deployers": {
+    "protocolFactory": "0xcc8b99ac88ae68882783a915210e619a701ce1a1"
+  }
+}

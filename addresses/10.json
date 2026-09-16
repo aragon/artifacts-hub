@@ -1,0 +1,73 @@
+{
+  "chainId": 10,
+  "network": "optimism",
+  "osx": {
+    "versions": [
+      {
+        "protocolVersion": "unknown",
+        "core": {
+          "daoBase": "0x42d24803d8697050ca59f6e306322ec9fce8d7e9",
+          "daoFactory": "0xb001bd6a21056c2a7fb5a5b9005cf896b181e74d",
+          "daoRegistry": "0xdab3ab22cdd41ab299d7d674714ca94e9b63f9dd",
+          "pluginRepoFactory": "0xb4cd80ae1311a16cd660fb53d5d1d78515d9f591",
+          "pluginRepoRegistry": "0x22a80a41893cf0211b345de12825800d21c73102",
+          "pluginSetupProcessor": "0x2379dc18b4a939a2b76f5c79f58aa49193da56c2"
+        },
+        "helpers": {
+          "globalExecutor": "0x3a8bd3c4dd02340868c75b5b671673ea094a75bb"
+        },
+        "current": true
+      }
+    ]
+  },
+  "management": {
+    "dao": "0xf24041eb590f1ea30210f64b40eae34b9e2f4fb3",
+    "daoMultisig": "0xc77eac37f4cd361fd95962a6cfa6d69ad36398af"
+  },
+  "ens": {},
+  "plugins": {
+    "admin": {
+      "repo": "0x35b21e1b431299c57678e6ba3274389fe9c6f02c",
+      "ens": "admin.plugin.dao.eth",
+      "maintainer": "0xf24041eb590f1ea30210f64b40eae34b9e2f4fb3",
+      "versions": []
+    },
+    "multisig": {
+      "repo": "0xe903df20cd497f0cc12e870d784acad53cc5c9d6",
+      "ens": "multisig.plugin.dao.eth",
+      "maintainer": "0xf24041eb590f1ea30210f64b40eae34b9e2f4fb3",
+      "versions": []
+    },
+    "token-voting": {
+      "repo": "0x666bfa1c64c40faee8582496b040aae35e25c19d",
+      "ens": "token-voting.plugin.dao.eth",
+      "maintainer": "0xf24041eb590f1ea30210f64b40eae34b9e2f4fb3",
+      "versions": [],
+      "other": {
+        "governanceERC20": "0xf5550fdd549a04b782229acc51bcf229527fb8a8",
+        "governanceWrappedERC20": "0x7432045e71368d66f91fdcc3e67a799347fa4167"
+      }
+    },
+    "lock-to-vote": {
+      "repo": "0x306e4339ae3bd3ba7fd1bb32c8b4d3a5cd90f379",
+      "ens": "lock-2-vote.plugin.dao.eth",
+      "maintainer": "0xf24041eb590f1ea30210f64b40eae34b9e2f4fb3",
+      "versions": []
+    },
+    "spp": {
+      "repo": "0x766ac7e501693e6b0b3fd0806daf333bd2b01544",
+      "ens": "staged-proposal-processor.plugin.dao.eth",
+      "maintainer": "0xf24041eb590f1ea30210f64b40eae34b9e2f4fb3",
+      "versions": []
+    }
+  },
+  "conditions": {
+    "factories": [
+      {
+        "address": "0x988b0e1542d5e9494897778ebc444e9ffda58ddb",
+        "current": true
+      }
+    ]
+  },
+  "deployers": {}
+}

@@ -1,0 +1,80 @@
+{
+  "chainId": 11155111,
+  "network": "sepolia",
+  "osx": {
+    "versions": [
+      {
+        "protocolVersion": "unknown",
+        "core": {
+          "daoBase": "0x824d4aad1cbf2327c4c429e3c97f968ee19344f8",
+          "daoFactory": "0xb815791c233807d39b7430127975244b36c19c8e",
+          "daoRegistry": "0x308a1dc5020c4b5d992f5543a7236c465997fecb",
+          "pluginRepoFactory": "0x399ce2a71ef78be6890eb628384dd09d4382a7f0",
+          "pluginRepoRegistry": "0x35b62715459cb60bf6dc17ff8cfe138ea305e7ee",
+          "pluginSetupProcessor": "0xc24188a73dc09aa7c721f96ad8857b469c01dc9f"
+        },
+        "helpers": {
+          "globalExecutor": "0x7a20760b89ef507759dd2c5a0d1f1657614341a9"
+        },
+        "current": true
+      }
+    ]
+  },
+  "management": {
+    "dao": "0xca834b3f404c97273f34e108029eed776144d324",
+    "daoMultisig": "0xfcead61339e3e73090b587968fce8b090e0600ef"
+  },
+  "ens": {
+    "registry": "0x90254282df344e7ff6f4c16745693d9e54cc4a52",
+    "daoSubdomainRegistrar": "0x9e9920a6ecf5de48632bc1453162662aa15a7815",
+    "pluginSubdomainRegistrar": "0xa15f989ff68df4cfe9f5d3c91f096013b3571c8b",
+    "publicResolver": "0x551429eaf694a529f7fe4752d61e00d402d185ac"
+  },
+  "plugins": {
+    "admin": {
+      "repo": "0x152c9e28995e418870b85cbbc0aee4e53020edb2",
+      "ens": "admin.plugin.dao.eth",
+      "maintainer": "0xca834b3f404c97273f34e108029eed776144d324",
+      "versions": []
+    },
+    "multisig": {
+      "repo": "0x9e7956c8758470de159481e5dd0d08f8b59217a2",
+      "ens": "multisig.plugin.dao.eth",
+      "maintainer": "0xca834b3f404c97273f34e108029eed776144d324",
+      "versions": []
+    },
+    "token-voting": {
+      "repo": "0x424f4ca6fa9c24c03f2396df0e96057ed11cf7df",
+      "ens": "token-voting.plugin.dao.eth",
+      "maintainer": "0xca834b3f404c97273f34e108029eed776144d324",
+      "versions": [],
+      "other": {
+        "governanceERC20": "0x702f3245cf23dd6cd74da925c1ca9f19de516b09",
+        "governanceWrappedERC20": "0xe679109a9e589aa6e509e36c9a9052beb5174a34"
+      }
+    },
+    "spp": {
+      "repo": "0xda62d32c14e8ca78958d6fdc0142a575b0cd6ad4",
+      "ens": "staged-proposal-processor.plugin.dao.eth",
+      "maintainer": "0xca834b3f404c97273f34e108029eed776144d324",
+      "versions": []
+    },
+    "lock-to-vote": {
+      "repo": "0x499f7c3e8778d07bbbdc434df06a985e54d7ed35",
+      "ens": "lock-2-vote.plugin.dao.eth",
+      "maintainer": "0xca834b3f404c97273f34e108029eed776144d324",
+      "versions": []
+    }
+  },
+  "conditions": {
+    "factories": [
+      {
+        "address": "0x988b0e1542d5e9494897778ebc444e9ffda58ddb",
+        "current": true
+      }
+    ]
+  },
+  "deployers": {
+    "protocolFactory": "0xf1def437ac529ac408f73a6abb72eb17459bfd6d"
+  }
+}

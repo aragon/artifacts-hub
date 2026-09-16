@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-// Ethereum address. Lowercased on parse — checksums are display-only, not identity,
+// Ethereum address. Lowercased on parse: checksums are display-only, not identity,
 // so we normalise here to make cross-file comparison trivial.
 export const Address = z
   .string()
@@ -15,10 +15,14 @@ export const ReleaseBuild = z.object({
   build: z.number().int().positive(),
 });
 
-// The OSx framework itself: factories, registries, PSP. memberRegistry* is
-// mainnet-only. Everything optional so a partially-known snapshot still validates.
+// The OSx framework itself: factories, registries, PSP, and the DAO
+// implementation that DAOFactory clones ("daoBase": distinct from a specific
+// management DAO instance, which lives under `management.dao`).
+// memberRegistry* is mainnet-only. Everything optional so a partial snapshot
+// still validates.
 export const OsxCore = z
   .object({
+    daoBase: Address.optional(),
     daoFactory: Address.optional(),
     daoRegistry: Address.optional(),
     pluginRepoFactory: Address.optional(),
@@ -43,22 +47,29 @@ export const OsxHelpers = z
 
 // One OSx protocol version snapshot. protocolVersion is the string returned by
 // DAOFactory.protocolVersion() ("major.minor.patch"). Additive: leave older
-// versions in place when a new one lands.
+// versions in place when a new one lands. `current: true` marks the version
+// that's live now; enrichment stamps it on the last entry of the ascending
+// versions[] array so consumers can `versions.find(v => v.current)`.
 export const OsxVersion = z.object({
   protocolVersion: z.string(),
   core: OsxCore,
   helpers: OsxHelpers,
+  current: z.boolean().optional(),
 });
 
 // A single (release, build) of a plugin. `setup` is required (that's what
 // PluginRepo.getVersion returns). `implementation` is optional because some
-// plugin patterns don't have a distinct impl address.
+// plugin patterns don't have a distinct impl address. `current: true` is set
+// on the highest release/build in enrich — under rolling-release semantics
+// that's always the newest, but marking it inline lets consumers do
+// `versions.find(v => v.current)` instead of `versions[versions.length - 1]`.
 export const PluginVersion = z.object({
   release: z.number().int().positive(),
   build: z.number().int().positive(),
   setup: Address,
   implementation: Address.optional(),
-  // Additional addresses associated with this plugin version — canonical
+  current: z.boolean().optional(),
+  // Additional addresses associated with this plugin version: canonical
   // LockManager, shipped conditions, helper singletons, whatever the plugin
   // needs. Free-form keys keep the schema stable across plugins.
   other: z.record(z.string(), Address).optional(),
@@ -72,28 +83,23 @@ export const PluginVersion = z.object({
 });
 
 // One Aragon plugin as it lives on a chain: one PluginRepo, N versions.
-// `versions` may be empty when the repo exists but we haven't yet snapshotted
-// its on-chain releases.
-export const Plugin = z
-  .object({
-    repo: Address,
-    ens: z.string().optional(),
-    maintainer: Address.optional(),
-    versions: z.array(PluginVersion).default([]),
-    current: ReleaseBuild.optional(),
-  })
-  .refine(
-    (p) =>
-      !p.current ||
-      p.versions.some(
-        (v) =>
-          v.release === p.current!.release && v.build === p.current!.build,
-      ),
-    { message: "current release.build must exist in versions[]" },
-  );
+// versions[] is written in ascending release/build order; the last entry has
+// `current: true` under Aragon's rolling-release model.
+//
+// `other` carries chain-scoped auxiliary addresses tied to this plugin but not
+// to any specific release/build: canonical templates, singleton helpers,
+// factory outputs. (Per-version helpers live under `PluginVersion.other`
+// instead; different lifetime.)
+export const Plugin = z.object({
+  repo: Address,
+  ens: z.string().optional(),
+  maintainer: Address.optional(),
+  versions: z.array(PluginVersion).default([]),
+  other: z.record(z.string(), Address).optional(),
+});
 
 // The OSx-managed DAO that governs upgrades and permissions of the protocol
-// itself on this chain. Deployed once; upgraded in place — no versions[].
+// itself on this chain. Deployed once; upgraded in place: no versions[].
 // daoMultisig is the specific Multisig plugin instance that governs `dao`.
 export const Management = z
   .object({
@@ -114,6 +120,23 @@ export const Ens = z
   })
   .default({});
 
+// A ConditionFactory deployment. Aragon bumps the factory whenever a new
+// condition type ships (each newer factory can instantiate more kinds), so
+// factories[] is an ascending version list. The last entry gets `current: true`
+// stamped by enrich. `version` is optional because upstream doesn't yet publish
+// a version tag alongside the address.
+export const ConditionFactoryVersion = z.object({
+  version: z.string().optional(),
+  address: Address,
+  current: z.boolean().optional(),
+});
+
+export const Conditions = z
+  .object({
+    factories: z.array(ConditionFactoryVersion).default([]),
+  })
+  .default({});
+
 // Per-chain address book. Only chainId + network are strictly required; every
 // other section defaults to empty so a partially populated chain still validates.
 //
@@ -121,8 +144,8 @@ export const Ens = z
 //   management  — the protocol's own governing DAO + multisig
 //   ens         — ENS stack (chains with ENS-based naming only)
 //   plugins     — plugin repos keyed by slug ("lock-to-vote", "token-voting", …)
-//   shared      — chain-global helpers that don't belong to a specific plugin
-//                 (governance token templates, condition factories, …)
+//                 Plugin-scoped helpers/templates go under `plugins.<slug>.other`.
+//   conditions  — chain-scoped condition factories (versioned)
 //   deployers   — one-shot deployment tools (protocolFactory, …). Lifecycle
 //                 artefacts, not runtime contracts.
 export const AddressBook = z.object({
@@ -131,18 +154,12 @@ export const AddressBook = z.object({
   osx: z
     .object({
       versions: z.array(OsxVersion).default([]),
-      current: z.string().optional(),
     })
-    .refine(
-      (x) =>
-        !x.current || x.versions.some((v) => v.protocolVersion === x.current),
-      { message: "current protocolVersion must exist in versions[]" },
-    )
     .optional(),
   management: Management.optional(),
   ens: Ens.optional(),
   plugins: z.record(z.string(), Plugin).default({}),
-  shared: z.record(z.string(), Address).default({}),
+  conditions: Conditions.optional(),
   deployers: z.record(z.string(), Address).default({}),
 });
 

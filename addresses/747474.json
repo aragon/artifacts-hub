@@ -1,0 +1,86 @@
+{
+  "chainId": 747474,
+  "network": "katana",
+  "osx": {
+    "versions": [
+      {
+        "protocolVersion": "1.4.0",
+        "core": {
+          "daoBase": "0x8e241da6591d07a9f2480117b5d94de4a63c4b3f",
+          "daoFactory": "0xd59d2bef6465cc71efec40afd2d72901470dd835",
+          "daoRegistry": "0x9fa8d7f4897c12a8f3a5e02daf2f48199dddaf3f",
+          "pluginRepoFactory": "0x98de0dc6e86f4cdd69646e7ffff8d6f4bb997b10",
+          "pluginRepoRegistry": "0xfe5102f03b829382e8e2f6b15cc3e0e3b63e5dd1",
+          "pluginSetupProcessor": "0xfd4dbd760e253b7ee0ce81d47946dadd2531f1fc"
+        },
+        "helpers": {
+          "globalExecutor": "0x7b73f551167abfe2585a6bae6def948489c1855c"
+        },
+        "current": true
+      }
+    ]
+  },
+  "management": {
+    "dao": "0xb8be55076350164c62ae0cfb69560b0f0a9b8a33",
+    "daoMultisig": "0x8760908de86140eabf71245e63adecc9f9c41ead"
+  },
+  "ens": {},
+  "plugins": {
+    "multisig": {
+      "repo": "0x5596451d7edea4cba96a181c5b8a31b93a62f7df",
+      "ens": "multisig.plugin.dao.eth",
+      "maintainer": "0xb8be55076350164c62ae0cfb69560b0f0a9b8a33",
+      "versions": [
+        {
+          "release": 1,
+          "build": 1,
+          "setup": "0x610cbbe9c9cdd5c9b03afbab19300c4656238f08",
+          "implementation": "0x0000000000000000000000000000000000000000"
+        },
+        {
+          "release": 1,
+          "build": 2,
+          "setup": "0x610cbbe9c9cdd5c9b03afbab19300c4656238f08",
+          "implementation": "0x0000000000000000000000000000000000000000"
+        },
+        {
+          "release": 1,
+          "build": 3,
+          "setup": "0x99e8cea1050d19fa5b35baf9b5524f68839fb685",
+          "implementation": "0x9a09363c4b886025f9182e10b1081690b0b498d0",
+          "current": true
+        }
+      ]
+    },
+    "lock-to-vote": {
+      "repo": "0xba588c53b6a368a2f80a741d9301b6f27bfeb483",
+      "ens": "lock-2-vote.plugin.dao.eth",
+      "maintainer": "0xb8be55076350164c62ae0cfb69560b0f0a9b8a33",
+      "versions": [
+        {
+          "release": 1,
+          "build": 1,
+          "setup": "0x27d480c4d820091ae7b648530734d860d5363886",
+          "implementation": "0xbdd9552ec6a137c6fa935ea644684bdb91c9bfd7",
+          "current": true
+        }
+      ]
+    },
+    "spp": {
+      "repo": "0x90fa4993849f2b0063bec161e28f1183e6a3d054",
+      "ens": "staged-proposal-processor.plugin.dao.eth",
+      "maintainer": "0xb8be55076350164c62ae0cfb69560b0f0a9b8a33",
+      "versions": [
+        {
+          "release": 1,
+          "build": 1,
+          "setup": "0x089cc95fe03be5d6451af638a71cf24a48877a5c",
+          "implementation": "0x6ab6528e0d5a0f7c5738adfe6bc92dabc501d506",
+          "current": true
+        }
+      ]
+    }
+  },
+  "conditions": {},
+  "deployers": {}
+}

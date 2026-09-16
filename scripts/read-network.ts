@@ -138,7 +138,7 @@ async function main() {
     deployers: { protocolFactory },
   };
 
-  // Enrich each plugin with its on-chain versions. Runs sequentially — RPC
+  // Enrich each plugin with its on-chain versions. Runs sequentially, RPC
   // rate-limits and getDeployment already gave us the repos, so this is the only
   // network-heavy step. If it turns out slow, parallelise later.
   for (const { slug, field } of PLUGIN_MAP) {
@@ -148,7 +148,7 @@ async function main() {
     const latest = versions[versions.length - 1];
     book.plugins[slug] = {
       repo,
-      maintainer: d.managementDao, // best-guess default — override per-chain if needed
+      maintainer: d.managementDao, // best-guess default, override per-chain if needed
       versions: versions.map((v) => ({
         release: v.release,
         build: v.build,

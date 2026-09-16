@@ -1,0 +1,73 @@
+{
+  "chainId": 21000000,
+  "network": "corn",
+  "osx": {
+    "versions": [
+      {
+        "protocolVersion": "unknown",
+        "core": {
+          "daoBase": "0x604953e159562feeff38961541415b0c0694ef5a",
+          "daoFactory": "0x72f635574c797bab5eb82489aa906ce23d9aad6f",
+          "daoRegistry": "0xbc0b6c33dcce139e93f13422a14ae8611808a77d",
+          "pluginRepoFactory": "0x16712373caa40c118c6694f72992505b20f18e22",
+          "pluginRepoRegistry": "0xfe0b67291606c34658681049f9691b2228d5faa4",
+          "pluginSetupProcessor": "0x63054ebe143cfaa5e463256462a6fc56c6fc56d4"
+        },
+        "helpers": {
+          "globalExecutor": "0xcfe83d0079c9455ef1e11864d701d6e1bdf8ff2a"
+        },
+        "current": true
+      }
+    ]
+  },
+  "management": {
+    "dao": "0xca2baf878f49ff8769e527dea4fefb58220a9577",
+    "daoMultisig": "0xadfe94f8d1ebc58833fea8a1cc39bf1f3a1ee2aa"
+  },
+  "ens": {},
+  "plugins": {
+    "admin": {
+      "repo": "0x0658a36b1baa6bde43624dea80760f5c5c78b122",
+      "ens": "admin.plugin.dao.eth",
+      "maintainer": "0xca2baf878f49ff8769e527dea4fefb58220a9577",
+      "versions": []
+    },
+    "multisig": {
+      "repo": "0xf3793d55c5fef8afb5cdf305996a93281c6bd220",
+      "ens": "multisig.plugin.dao.eth",
+      "maintainer": "0xca2baf878f49ff8769e527dea4fefb58220a9577",
+      "versions": []
+    },
+    "lock-to-vote": {
+      "repo": "0xc6e2b94a9e75a0ddef9577dc90b3bc4aba8c29c9",
+      "ens": "lock-2-vote.plugin.dao.eth",
+      "maintainer": "0xca2baf878f49ff8769e527dea4fefb58220a9577",
+      "versions": []
+    },
+    "spp": {
+      "repo": "0xcb20c04b91001acb05f2a439f7a90f6411406e7e",
+      "ens": "staged-proposal-processor.plugin.dao.eth",
+      "maintainer": "0xca2baf878f49ff8769e527dea4fefb58220a9577",
+      "versions": []
+    },
+    "token-voting": {
+      "repo": "0x67c579fc2676a496dce7dab9695d323219d339eb",
+      "ens": "token-voting.plugin.dao.eth",
+      "maintainer": "0xca2baf878f49ff8769e527dea4fefb58220a9577",
+      "versions": [],
+      "other": {
+        "governanceERC20": "0x8f44e6e0ea7cbfa2964213c704103e2384fcd33f",
+        "governanceWrappedERC20": "0xbb342a070ac1d009d6756bd0788d3e36aace6071"
+      }
+    }
+  },
+  "conditions": {
+    "factories": [
+      {
+        "address": "0x988b0e1542d5e9494897778ebc444e9ffda58ddb",
+        "current": true
+      }
+    ]
+  },
+  "deployers": {}
+}

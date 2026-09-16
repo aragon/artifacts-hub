@@ -31,7 +31,7 @@ const V1_FIELDS = [
 
 const V2_FIELDS = [...V1_FIELDS, "lockToVotePluginRepo"] as const;
 
-// Deployment type is the union — every field optional. Old factories won't
+// Deployment type is the union, every field optional. Old factories won't
 // populate lockToVotePluginRepo; treat its absence as "resolve elsewhere" (ENS).
 export type Deployment = Partial<Record<(typeof V2_FIELDS)[number], Address>>;
 
