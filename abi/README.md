@@ -17,15 +17,16 @@ Aragon component ABIs — one JSON per contract, one folder per source component
 
 ## Components
 
-| slug            | source repo                                     |
-|-----------------|-------------------------------------------------|
-| `osx`           | `aragon/osx`                                    |
-| `admin`         | `aragon/admin-plugin`                           |
-| `multisig`      | `aragon/multisig-plugin`                        |
-| `token-voting`  | `aragon/token-voting-plugin`                    |
-| `spp`           | `aragon/staged-proposal-processor-plugin`       |
-| `lock-to-vote`  | `aragon/lock-to-vote-plugin`                    |
-| `conditions`    | `aragon/condition-library`                      |
+| slug                | source repo                                     |
+|---------------------|-------------------------------------------------|
+| `osx`               | `aragon/osx`                                    |
+| `admin`             | `aragon/admin-plugin`                           |
+| `multisig`          | `aragon/multisig-plugin`                        |
+| `token-voting`      | `aragon/token-voting-plugin`                    |
+| `spp`               | `aragon/staged-proposal-processor-plugin`       |
+| `lock-to-vote`      | `aragon/lock-to-vote-plugin`                    |
+| `conditions`        | `aragon/condition-library`                      |
+| `protocol-factory`  | `aragon/protocol-factory`                       |
 
 ## Consuming
 

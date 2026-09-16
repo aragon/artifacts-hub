@@ -80,15 +80,16 @@ See [`addresses/README.md`](./addresses/README.md) for the tree layout and file-
 
 One folder per source component; one JSON per contract. Slugs match `addresses/` where applicable:
 
-| slug            | source repo                                 |
-|-----------------|---------------------------------------------|
-| `osx`           | `aragon/osx`                                |
-| `admin`         | `aragon/admin-plugin`                       |
-| `multisig`      | `aragon/multisig-plugin`                    |
-| `token-voting`  | `aragon/token-voting-plugin`                |
-| `spp`           | `aragon/staged-proposal-processor-plugin`   |
-| `lock-to-vote`  | `aragon/lock-to-vote-plugin`                |
-| `conditions`    | `aragon/condition-library`                  |
+| slug                | source repo                                 |
+|---------------------|---------------------------------------------|
+| `osx`               | `aragon/osx`                                |
+| `admin`             | `aragon/admin-plugin`                       |
+| `multisig`          | `aragon/multisig-plugin`                    |
+| `token-voting`      | `aragon/token-voting-plugin`                |
+| `spp`               | `aragon/staged-proposal-processor-plugin`   |
+| `lock-to-vote`      | `aragon/lock-to-vote-plugin`                |
+| `conditions`        | `aragon/condition-library`                  |
+| `protocol-factory`  | `aragon/protocol-factory`                   |
 
 Each folder carries a generated `index.ts` exporting every contract as `<Contract>ABI` with `as const` (viem-friendly). The top-level [`abi/index.ts`](./abi/index.ts) re-exports each component under a camelCase namespace (`lock-to-vote` → `lockToVote`, etc.).
 
