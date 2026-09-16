@@ -14,7 +14,8 @@
           "pluginSetupProcessor": "0xfd4dbd760e253b7ee0ce81d47946dadd2531f1fc"
         },
         "helpers": {
-          "globalExecutor": "0x7b73f551167abfe2585a6bae6def948489c1855c"
+          "globalExecutor": "0x7b73f551167abfe2585a6bae6def948489c1855c",
+          "placeholderSetup": "0x610cbbe9c9cdd5c9b03afbab19300c4656238f08"
         },
         "current": true
       }
@@ -24,7 +25,12 @@
     "dao": "0xb8be55076350164c62ae0cfb69560b0f0a9b8a33",
     "daoMultisig": "0x8760908de86140eabf71245e63adecc9f9c41ead"
   },
-  "ens": {},
+  "ens": {
+    "registry": "0x8a788f1daa51b1a31bee0de197d06b7c084f8961",
+    "daoSubdomainRegistrar": "0xab8a667a16eb61661f57a7adfcbea53a3a2a2fee",
+    "pluginSubdomainRegistrar": "0xb3d57c0576225f4545344b8f0c3782e2873d23ef",
+    "publicResolver": "0xd330979d4cf214661b23a95dfd04440bfa09e741"
+  },
   "plugins": {
     "multisig": {
       "repo": "0x5596451d7edea4cba96a181c5b8a31b93a62f7df",
@@ -145,5 +151,7 @@
       }
     ]
   },
-  "deployers": {}
+  "deployers": {
+    "protocolFactory": "0xcc8b99ac88ae68882783a915210e619a701ce1a1"
+  }
 }

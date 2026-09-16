@@ -53,15 +53,15 @@
         "governanceWrappedERC20": "0xe679109a9e589aa6e509e36c9a9052beb5174a34"
       }
     },
-    "spp": {
-      "repo": "0xda62d32c14e8ca78958d6fdc0142a575b0cd6ad4",
-      "ens": "staged-proposal-processor.plugin.dao.eth",
-      "maintainer": "0xca834b3f404c97273f34e108029eed776144d324",
-      "versions": []
-    },
     "lock-to-vote": {
       "repo": "0x499f7c3e8778d07bbbdc434df06a985e54d7ed35",
       "ens": "lock-2-vote.plugin.dao.eth",
+      "maintainer": "0xca834b3f404c97273f34e108029eed776144d324",
+      "versions": []
+    },
+    "spp": {
+      "repo": "0xda62d32c14e8ca78958d6fdc0142a575b0cd6ad4",
+      "ens": "staged-proposal-processor.plugin.dao.eth",
       "maintainer": "0xca834b3f404c97273f34e108029eed776144d324",
       "versions": []
     }
@@ -74,7 +74,5 @@
       }
     ]
   },
-  "deployers": {
-    "protocolFactory": "0xf1def437ac529ac408f73a6abb72eb17459bfd6d"
-  }
+  "deployers": {}
 }
