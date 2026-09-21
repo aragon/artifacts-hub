@@ -1,6 +1,7 @@
 {
   "chainId": 3338,
   "network": "peaq",
+  "deprecated": true,
   "osx": {
     "versions": [
       {

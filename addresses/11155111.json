@@ -64,6 +64,20 @@
       "ens": "staged-proposal-processor.plugin.dao.eth",
       "maintainer": "0xca834b3f404c97273f34e108029eed776144d324",
       "versions": []
+    },
+    "crosschain": {
+      "repo": "0xaa774cf3301fd3c01ec6a7e808274520a0aa2603",
+      "ens": "crosschain.plugin.dao.eth",
+      "maintainer": "0xca834b3f404c97273f34e108029eed776144d324",
+      "versions": [
+        {
+          "release": 1,
+          "build": 1,
+          "setup": "0xdce38a7fd03d2543b8e08f3eb663dbb30e61ae2e",
+          "implementation": "0x817b45e3e4833ecf1a91828295c9d2cf8e2b866f",
+          "current": true
+        }
+      ]
     }
   },
   "conditions": {

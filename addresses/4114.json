@@ -147,6 +147,20 @@
           "current": true
         }
       ]
+    },
+    "crosschain": {
+      "repo": "0xe43d5fab110c1a19f249f7d706aede3cea25e866",
+      "ens": "crosschain.plugin.dao.eth",
+      "maintainer": "0x0e6854fd4c620583432d92dd7e16df9183714f65",
+      "versions": [
+        {
+          "release": 1,
+          "build": 1,
+          "setup": "0xca765fe97c4e18c35a2335f90b85a764c4775d9d",
+          "implementation": "0x9a68ad21190ba7c7e8c11922e8ca8963516dfa90",
+          "current": true
+        }
+      ]
     }
   },
   "conditions": {

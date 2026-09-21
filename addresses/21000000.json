@@ -1,6 +1,7 @@
 {
   "chainId": 21000000,
   "network": "corn",
+  "deprecated": true,
   "osx": {
     "versions": [
       {
