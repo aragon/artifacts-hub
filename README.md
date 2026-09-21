@@ -109,6 +109,46 @@ That reads `getDeployment()` on the PF, calls `protocolVersion()` on the DAOFact
 
 For chains that predate the ProtocolFactory (mainnet, arbitrum, base, …), the address book is hand-managed. Edit the JSON directly and let `just validate` + `just coverage` gate the changes.
 
+## Per-deployment artifacts from plugin repos
+
+Plugin repos emit a self-describing envelope after each on-chain deployment:
+
+```
+<plugin-repo>/artifacts/artifacts-<network>-<timestamp>.json
+```
+
+The envelope's `plugin` subtree is exactly the AddressBook `Plugin` schema, so a
+future ingest step can drop it straight into `addresses/<chainId>.json` under
+`plugins.<slug>` — no re-derivation, no per-plugin adapter code.
+
+```json
+{
+  "chainId": 11155111,
+  "network": "sepolia",
+  "timestamp": 1789660800,
+  "slug": "crosschain",
+  "plugin": {
+    "repo":  "0xaa77…2603",
+    "ens":   "crosschain.plugin.dao.eth",
+    "maintainer": "0xca83…d324",
+    "versions": [
+      { "release": 1, "build": 1,
+        "setup": "0xdce3…ae2e",
+        "implementation": "0x817b…866f",
+        "current": true }
+    ]
+  }
+}
+```
+
+Zod source of truth: `PluginArtifact` in [`scripts/schema.ts`](./scripts/schema.ts).
+Reserved slugs (canonical ENS + display label) live in
+[`scripts/lib/plugin-catalog.ts`](./scripts/lib/plugin-catalog.ts).
+
+Ingestion of these envelopes into the address book is not wired up yet — the
+files accumulate in each plugin repo; a future script will sweep them into
+`addresses/` in one pass.
+
 ## Refreshing ABIs
 
 `just generate-abi` regenerates `abi/**/index.ts` from whatever JSONs are on disk. Run it after any hand-edit or fresh drop of an ABI JSON.

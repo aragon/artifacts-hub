@@ -161,9 +161,29 @@ export const AddressBook = z.object({
   deployers: z.record(z.string(), Address).default({}),
 });
 
+// Per-deployment envelope emitted by a plugin repo's deploy script into
+// `<plugin>/artifacts/artifacts-<network>-<timestamp>.json`. Self-describing so
+// an ingest step can merge it into `addresses/<chainId>.json` without inferring
+// anything from the filename: `chainId` picks the target file, `slug` picks the
+// entry under `plugins.<slug>`, and `plugin` is exactly the AddressBook Plugin
+// subtree (same schema, drop-in mergeable).
+//
+// `timestamp` is the block.timestamp at deployment (seconds). One file per
+// deployment; ingest is expected to overwrite prior artifacts for the same
+// (chainId, slug) or append a version to `plugin.versions` under Aragon's
+// rolling-release model.
+export const PluginArtifact = z.object({
+  chainId: ChainId,
+  network: z.string(),
+  timestamp: z.number().int().nonnegative(),
+  slug: z.string(),
+  plugin: Plugin,
+});
+
 export type AddressBook = z.infer<typeof AddressBook>;
 export type Plugin = z.infer<typeof Plugin>;
 export type PluginVersion = z.infer<typeof PluginVersion>;
 export type OsxVersion = z.infer<typeof OsxVersion>;
 export type Management = z.infer<typeof Management>;
 export type Ens = z.infer<typeof Ens>;
+export type PluginArtifact = z.infer<typeof PluginArtifact>;
