@@ -149,6 +149,10 @@ export const Conditions = z
 export const AddressBook = z.object({
   chainId: ChainId,
   network: z.string(),
+  // When true, the chain is retired: entries stay so consumers can still
+  // resolve historical addresses, but `coverage.ts` excludes it from the
+  // required-slot gate and no new plugin ingest should target it.
+  deprecated: z.boolean().optional(),
   osx: z
     .object({
       versions: z.array(OsxVersion).default([]),
