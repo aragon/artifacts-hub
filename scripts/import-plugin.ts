@@ -35,7 +35,7 @@ async function main() {
     console.error("usage: just import-plugin [--dry-run] <path>");
     Deno.exit(2);
   }
-  const target = resolve(args[0]);
+  const target = resolve(Deno.env.get("INVOCATION_DIR") ?? Deno.cwd(), args[0]);
   const artifacts = await enumerateArtifacts(target);
   if (!artifacts.length) {
     console.error(`no artifact JSON files found at ${target}`);
