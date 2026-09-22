@@ -79,7 +79,7 @@
       ]
     },
     "token-voting": {
-      "repo": "0xb7401cd221ceafc54093168b814cc3d42579287f",
+      "repo": "0xf56e330a183cabac0b082b1a318f2c7ba66fe4d6",
       "ens": "token-voting.plugin.dao.eth",
       "maintainer": "0xdfd7d4800a37cd054024dfb3a48627d2489e4177",
       "versions": [],
