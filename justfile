@@ -22,7 +22,7 @@ ingest *args:
 # Import a PluginArtifact envelope (or a directory of them) into addresses/<chainId>.json
 [group('ingest')]
 import-plugin *args:
-    cd scripts && deno task import-plugin {{ args }}
+    cd scripts && INVOCATION_DIR={{ invocation_directory() }} deno task import-plugin {{ args }}
 
 # Regenerate abi/<component>/index.ts + abi/index.ts from the JSON files present in abi/
 [group('abi')]
