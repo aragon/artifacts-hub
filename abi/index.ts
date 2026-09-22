@@ -3,6 +3,7 @@
 
 export * as admin from "./admin/index.ts";
 export * as conditions from "./conditions/index.ts";
+export * as crosschain from "./crosschain/index.ts";
 export * as lockToVote from "./lock-to-vote/index.ts";
 export * as multisig from "./multisig/index.ts";
 export * as osx from "./osx/index.ts";
