@@ -84,7 +84,7 @@ function isRequiredFor(spec: SlotSpec, chainId: number): boolean {
 type PerNetwork = {
   network: string;
   chainId: number;
-  status: "complete" | "ok" | "partial" | "invalid";
+  status: "complete" | "ok" | "partial" | "invalid" | "deprecated";
   missing: string[];           // required slots that are missing
   missingOptional: string[];   // optional slots that are missing (real chain-scoped absences)
 };
@@ -125,11 +125,15 @@ async function main() {
     for (const spec of SLOT_SPECS) {
       const v = getPath(book, spec.path);
       if (v !== undefined) continue;
-      (isRequiredFor(spec, book.chainId) ? missing : missingOptional).push(spec.path);
+      // Deprecated chains: never required, so missing slots just go to the
+      // optional bucket and never fail the gate.
+      const required = !book.deprecated && isRequiredFor(spec, book.chainId);
+      (required ? missing : missingOptional).push(spec.path);
     }
-    const status =
-      missing.length > 0 ? "partial" :
-      missingOptional.length > 0 ? "ok" : "complete";
+    const status: PerNetwork["status"] = book.deprecated
+      ? "deprecated"
+      : missing.length > 0 ? "partial"
+      : missingOptional.length > 0 ? "ok" : "complete";
     rows.push({ network: book.network, chainId: book.chainId, status, missing, missingOptional });
   }
 
@@ -141,10 +145,11 @@ async function main() {
   }
 
   // --- grouped console.table view ---
-  const STATUS_ORDER: PerNetwork["status"][] = ["complete", "ok", "partial", "invalid"];
+  const STATUS_ORDER: PerNetwork["status"][] = ["complete", "ok", "deprecated", "partial", "invalid"];
   const STATUS_LABEL: Record<PerNetwork["status"], string> = {
     complete: "✓ COMPLETE — every slot present",
     ok: "◐ OK — required present, optional gaps are chain-scoped",
+    deprecated: "⌀ DEPRECATED — chain retired; gaps not enforced",
     partial: "⚠ PARTIAL — required slots missing",
     invalid: "✗ INVALID — file fails schema",
   };

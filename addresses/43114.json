@@ -79,7 +79,7 @@
       ]
     },
     "token-voting": {
-      "repo": "0xb7401cd221ceafc54093168b814cc3d42579287f",
+      "repo": "0xf56e330a183cabac0b082b1a318f2c7ba66fe4d6",
       "ens": "token-voting.plugin.dao.eth",
       "maintainer": "0xdfd7d4800a37cd054024dfb3a48627d2489e4177",
       "versions": [],
@@ -112,6 +112,20 @@
           "build": 1,
           "setup": "0x2b771482d77bd12c33188e19477dffed59fc1076",
           "implementation": "0xbab0b8cda2f6e39feb0f2b06fad4e75904deabd6",
+          "current": true
+        }
+      ]
+    },
+    "crosschain": {
+      "repo": "0x39a7945526aa7dedd7bd56e262d3f393f63f8c58",
+      "ens": "crosschain.plugin.dao.eth",
+      "maintainer": "0xdfd7d4800a37cd054024dfb3a48627d2489e4177",
+      "versions": [
+        {
+          "release": 1,
+          "build": 1,
+          "setup": "0x89442c2c351c9c3005fc0ae462e31a6b2ed09854",
+          "implementation": "0x2339a5e356fa1f2ca3614f211225f1c59108bf0d",
           "current": true
         }
       ]

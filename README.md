@@ -70,9 +70,10 @@ Schema outline:
 - **`osx.versions[]`** — one entry per protocol version deployed on the chain. `core.*` = the framework contracts, `helpers.*` = auxiliary singletons (`globalExecutor`; `placeholderSetup` on fresh 1.4 deploys).
 - **`management.*`** — the OSx-managing DAO + its multisig plugin instance.
 - **`ens.*`** — Aragon's ENS stack (registry, plugin- and dao-subdomain registrars, public resolver).
-- **`plugins.<slug>`** — one entry per plugin (`admin`, `multisig`, `token-voting`, `spp`, `lock-to-vote`) with `repo`, `ens`, `maintainer`, versioned setup+impl, and optional `other{}` for plugin-scoped auxiliary addresses.
+- **`plugins.<slug>`** — one entry per plugin (`admin`, `multisig`, `token-voting`, `spp`, `lock-to-vote`, `crosschain`) with `repo`, `ens`, `maintainer`, versioned setup+impl, and optional `other{}` for plugin-scoped auxiliary addresses.
 - **`conditions.factories[]`** — versioned condition factories deployed on the chain.
 - **`deployers.*`** — one-shot deployment tools (currently just `protocolFactory`).
+- **`deprecated: true`** (optional, top-level) — the chain is retired. Entries stay so consumers can still resolve historical addresses, but `just coverage` excludes it from the required-slot gate and new plugin ingest should not target it.
 
 See [`addresses/README.md`](./addresses/README.md) for the tree layout and file-naming rules; [`scripts/schema.ts`](./scripts/schema.ts) is the Zod source of truth.
 
@@ -88,6 +89,7 @@ One folder per source component; one JSON per contract. Slugs match `addresses/`
 | `token-voting`      | `aragon/token-voting-plugin`                |
 | `spp`               | `aragon/staged-proposal-processor-plugin`   |
 | `lock-to-vote`      | `aragon/lock-to-vote-plugin`                |
+| `crosschain`        | `aragon/crosschain`                         |
 | `conditions`        | `aragon/condition-library`                  |
 | `protocol-factory`  | `aragon/protocol-factory`                   |
 
@@ -109,6 +111,63 @@ That reads `getDeployment()` on the PF, calls `protocolVersion()` on the DAOFact
 
 For chains that predate the ProtocolFactory (mainnet, arbitrum, base, …), the address book is hand-managed. Edit the JSON directly and let `just validate` + `just coverage` gate the changes.
 
+## Per-deployment artifacts from plugin repos
+
+Plugin repos emit a self-describing envelope after each on-chain deployment:
+
+```
+<plugin-repo>/artifacts/artifacts-<network>-<timestamp>.json
+```
+
+The envelope's `plugin` subtree is exactly the AddressBook `Plugin` schema, so a
+future ingest step can drop it straight into `addresses/<chainId>.json` under
+`plugins.<slug>` — no re-derivation, no per-plugin adapter code.
+
+```json
+{
+  "chainId": 11155111,
+  "network": "sepolia",
+  "timestamp": 1789660800,
+  "slug": "crosschain",
+  "plugin": {
+    "repo":  "0xaa77…2603",
+    "ens":   "crosschain.plugin.dao.eth",
+    "maintainer": "0xca83…d324",
+    "versions": [
+      { "release": 1, "build": 1,
+        "setup": "0xdce3…ae2e",
+        "implementation": "0x817b…866f",
+        "current": true }
+    ]
+  }
+}
+```
+
+Zod source of truth: `PluginArtifact` in [`scripts/schema.ts`](./scripts/schema.ts).
+Reserved slugs (canonical ENS + display label) live in
+[`scripts/lib/plugin-catalog.ts`](./scripts/lib/plugin-catalog.ts).
+
+## Ingesting plugin deployments
+
+`just import-plugin` merges those envelopes into `addresses/<chainId>.json`
+under `plugins.<slug>`:
+
+```bash
+just import-plugin path/to/artifacts-<network>-<timestamp>.json   # one file
+just import-plugin path/to/plugin-artifacts-directory             # sweep every *.json in it (timestamp-ascending)
+just import-plugin --dry-run <path>                               # preview only, no writes
+```
+
+Invariants the script enforces (source: [`scripts/import-plugin.ts`](./scripts/import-plugin.ts)):
+
+- **Identity fields** (`repo`, `ens`, `maintainer`) are constants per (chainId, slug). Any mismatch against an existing entry is a hard error — ownership transfers or address changes belong in a reviewed PR, not through import.
+- **Versions are additive.** Same `(release, build)` with the same `(setup, implementation, other)` is a no-op (re-runs are safe). Same `(release, build)` with different addresses is a hard error.
+- **`current: true`** is derived: after any merge, only the highest `(release, build)` carries it. `versions[]` is re-sorted ascending.
+- Chain must be tracked (`addresses/<chainId>.json` must exist) and must **not** be marked `deprecated: true`. Ingest new chains with `just ingest` first.
+- Final book is re-parsed through Zod before writing, so addresses land canonically lowercased regardless of the artifact's casing.
+
+Directory mode + timestamp-ascending order means re-sweeping the same folder is a total no-op — safe to run in CI on every push, or as a follow-up to a batch of deploys.
+
 ## Refreshing ABIs
 
 `just generate-abi` regenerates `abi/**/index.ts` from whatever JSONs are on disk. Run it after any hand-edit or fresh drop of an ABI JSON.
@@ -123,6 +182,7 @@ just coverage           # per-network table + section gap summary
 just coverage --gaps    # invert to slot-centric view
 just coverage --json    # machine-readable output for scripting
 just ingest <chainId> <rpcUrl> <pfAddress> [network]
+just import-plugin <path>   # merge PluginArtifact envelope(s) into addresses/<chainId>.json
 just generate-abi       # regenerate abi/**/index.ts from JSONs on disk
 ```
 

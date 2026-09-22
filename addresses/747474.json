@@ -141,6 +141,20 @@
         "governanceERC20": "0x21764133e79fa5e390d1e93b66dca99ddfffed2c",
         "governanceWrappedERC20": "0xb568da7f3e8f9a748004e0dcc0951b9e1b862924"
       }
+    },
+    "crosschain": {
+      "repo": "0xa06702e4687e197722b65b8cf0080b60438cda7e",
+      "ens": "crosschain.plugin.dao.eth",
+      "maintainer": "0xb8be55076350164c62ae0cfb69560b0f0a9b8a33",
+      "versions": [
+        {
+          "release": 1,
+          "build": 1,
+          "setup": "0x780b78c283f102d30ea89f2df5b9745361112b51",
+          "implementation": "0x89442c2c351c9c3005fc0ae462e31a6b2ed09854",
+          "current": true
+        }
+      ]
     }
   },
   "conditions": {
