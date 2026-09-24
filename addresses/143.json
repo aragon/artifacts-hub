@@ -137,6 +137,12 @@
           "release": 1,
           "build": 1,
           "setup": "0x90b12a527fca8213ab2f8321bcda7bc08983e4a0",
+          "implementation": "0x2d5761eaa2bd254ec3167cf32aa82eee0d819bcd"
+        },
+        {
+          "release": 1,
+          "build": 2,
+          "setup": "0x150d61ddc7a6df80fe2d3f7b7f58b36b69b25fdb",
           "implementation": "0x2d5761eaa2bd254ec3167cf32aa82eee0d819bcd",
           "current": true
         }

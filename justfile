@@ -24,6 +24,12 @@ ingest *args:
 import-plugin *args:
     cd scripts && INVOCATION_DIR={{ invocation_directory() }} deno task import-plugin {{ args }}
 
+# Read all on-chain versions of a plugin's PluginRepo and merge them into addresses/<chainId>.json
+# (usage: just refresh-plugin <slug> <chainId> <rpcUrl>)
+[group('ingest')]
+refresh-plugin *args:
+    cd scripts && INVOCATION_DIR={{ invocation_directory() }} deno task refresh-plugin {{ args }}
+
 # Regenerate abi/<component>/index.ts + abi/index.ts from the JSON files present in abi/
 [group('abi')]
 generate-abi:

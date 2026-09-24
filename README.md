@@ -168,6 +168,31 @@ Invariants the script enforces (source: [`scripts/import-plugin.ts`](./scripts/i
 
 Directory mode + timestamp-ascending order means re-sweeping the same folder is a total no-op — safe to run in CI on every push, or as a follow-up to a batch of deploys.
 
+## Refreshing a plugin's versions from on-chain
+
+`just import-plugin` only ever adds what's in the envelope, which is fine when
+you've captured every deploy through the artifact flow. When a plugin repo
+already has versions on-chain that predate the envelope flow (or that were
+published through some other path), `just refresh-plugin` reads them straight
+from the `PluginRepo` and merges them in:
+
+```bash
+just refresh-plugin <slug> <chainId> <rpcUrl>
+just refresh-plugin --dry-run <slug> <chainId> <rpcUrl>
+```
+
+It looks up `plugins.<slug>.repo` in `addresses/<chainId>.json`, calls the
+same on-chain enumerator `just ingest` uses (walking `latestRelease()` +
+`buildCount(release)` and reading `getVersion(tag)` per build), then hands
+the result to the same merge core as `just import-plugin` — so identity
+mismatches, `(release, build)` collisions with different addresses, and
+deprecated-chain refusals all behave identically. New builds append and
+`current: true` re-stamps on the highest `(release, build)`.
+
+Use it whenever a chain's `plugins.<slug>.versions` looks short — typically
+right after adopting the envelope flow on a plugin that has historical
+builds, or as a periodic sanity sweep across all chains.
+
 ## Refreshing ABIs
 
 `just generate-abi` regenerates `abi/**/index.ts` from whatever JSONs are on disk. Run it after any hand-edit or fresh drop of an ABI JSON.
@@ -182,7 +207,8 @@ just coverage           # per-network table + section gap summary
 just coverage --gaps    # invert to slot-centric view
 just coverage --json    # machine-readable output for scripting
 just ingest <chainId> <rpcUrl> <pfAddress> [network]
-just import-plugin <path>   # merge PluginArtifact envelope(s) into addresses/<chainId>.json
+just import-plugin <path>            # merge PluginArtifact envelope(s) into addresses/<chainId>.json
+just refresh-plugin <slug> <chainId> <rpcUrl>   # enumerate all on-chain versions of a plugin, merge into the book
 just generate-abi       # regenerate abi/**/index.ts from JSONs on disk
 ```
 

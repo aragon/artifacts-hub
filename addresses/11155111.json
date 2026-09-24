@@ -35,19 +35,79 @@
       "repo": "0x152c9e28995e418870b85cbbc0aee4e53020edb2",
       "ens": "admin.plugin.dao.eth",
       "maintainer": "0xca834b3f404c97273f34e108029eed776144d324",
-      "versions": []
+      "versions": [
+        {
+          "release": 1,
+          "build": 1,
+          "setup": "0xb2cccb4d7ec56f992219bcf4abe2e7f02003443e",
+          "implementation": "0xbd9c68950ab6b7ec9e3f493ec701dd587a056e2a"
+        },
+        {
+          "release": 1,
+          "build": 2,
+          "setup": "0xda2bab5554a6f5e655cd0a1b46dcafbb39742334",
+          "implementation": "0x515085bc5e435621f54957a037ef2f06a7e1cf75",
+          "current": true
+        }
+      ]
     },
     "multisig": {
       "repo": "0x9e7956c8758470de159481e5dd0d08f8b59217a2",
       "ens": "multisig.plugin.dao.eth",
       "maintainer": "0xca834b3f404c97273f34e108029eed776144d324",
-      "versions": []
+      "versions": [
+        {
+          "release": 1,
+          "build": 1,
+          "setup": "0xb2a2b32b9d885c85d5b229c0509341c37cae7483",
+          "implementation": "0x0000000000000000000000000000000000000000"
+        },
+        {
+          "release": 1,
+          "build": 2,
+          "setup": "0x360586db62da31327b2462ba27beb3e48ebbf396",
+          "implementation": "0x3225bb58d6e483b0a2e91265c2b679005f578812"
+        },
+        {
+          "release": 1,
+          "build": 3,
+          "setup": "0x58cd7d773389f68250338c13a1bb5662cfbd0c9a",
+          "implementation": "0x908bb81abeb86ffea97f1b95b59c4aa8e71d84aa",
+          "current": true
+        }
+      ]
     },
     "token-voting": {
       "repo": "0x424f4ca6fa9c24c03f2396df0e96057ed11cf7df",
       "ens": "token-voting.plugin.dao.eth",
       "maintainer": "0xca834b3f404c97273f34e108029eed776144d324",
-      "versions": [],
+      "versions": [
+        {
+          "release": 1,
+          "build": 1,
+          "setup": "0xb2a2b32b9d885c85d5b229c0509341c37cae7483",
+          "implementation": "0x0000000000000000000000000000000000000000"
+        },
+        {
+          "release": 1,
+          "build": 2,
+          "setup": "0xadadd899f1096b77b6fe601748be1a7a9adb714b",
+          "implementation": "0x0749047b49b472a7f80c1c8f0a4dbbcecbc54339"
+        },
+        {
+          "release": 1,
+          "build": 3,
+          "setup": "0x7870837ffe670e62d4e601393d454f1b8649f7f9",
+          "implementation": "0x3b4d91ed7f1a8a2648cc72e8de31f0d35a4f9a65"
+        },
+        {
+          "release": 1,
+          "build": 4,
+          "setup": "0x703447f287b746673a0fb58069a89e567cbba3dd",
+          "implementation": "0xd0a6dd068ff167e7ce3769c9f71fb066a8c5d540",
+          "current": true
+        }
+      ],
       "other": {
         "governanceERC20": "0x702f3245cf23dd6cd74da925c1ca9f19de516b09",
         "governanceWrappedERC20": "0xe679109a9e589aa6e509e36c9a9052beb5174a34"
@@ -57,13 +117,34 @@
       "repo": "0x499f7c3e8778d07bbbdc434df06a985e54d7ed35",
       "ens": "lock-2-vote.plugin.dao.eth",
       "maintainer": "0xca834b3f404c97273f34e108029eed776144d324",
-      "versions": []
+      "versions": [
+        {
+          "release": 1,
+          "build": 1,
+          "setup": "0xff9fc62165870cc5f7990b885cf10326667280e7",
+          "implementation": "0x09018b46c4a3454e747275d29568cf65f8f1adf6",
+          "current": true
+        }
+      ]
     },
     "spp": {
       "repo": "0xda62d32c14e8ca78958d6fdc0142a575b0cd6ad4",
       "ens": "staged-proposal-processor.plugin.dao.eth",
       "maintainer": "0xca834b3f404c97273f34e108029eed776144d324",
-      "versions": []
+      "versions": [
+        {
+          "release": 1,
+          "build": 1,
+          "setup": "0x1b6632d1357d26055d6452e3b3bebd1c1d982e86",
+          "implementation": "0x6c5c467c94bcc594dee61cfa0e8cca24d835d894"
+        },
+        {
+          "release": 1,
+          "build": 2,
+          "setup": "0x6a05c8167b5bcd5152d41ed2bdfd6291f4a6c577",
+          "implementation": "0x6c5c467c94bcc594dee61cfa0e8cca24d835d894"
+        }
+      ]
     },
     "crosschain": {
       "repo": "0xaa774cf3301fd3c01ec6a7e808274520a0aa2603",

@@ -82,7 +82,33 @@
       "repo": "0xf56e330a183cabac0b082b1a318f2c7ba66fe4d6",
       "ens": "token-voting.plugin.dao.eth",
       "maintainer": "0xdfd7d4800a37cd054024dfb3a48627d2489e4177",
-      "versions": [],
+      "versions": [
+        {
+          "release": 1,
+          "build": 1,
+          "setup": "0x28810dd2a0faf2c2973de07e0d50f3a45c25193c",
+          "implementation": "0x0000000000000000000000000000000000000000"
+        },
+        {
+          "release": 1,
+          "build": 2,
+          "setup": "0x28810dd2a0faf2c2973de07e0d50f3a45c25193c",
+          "implementation": "0x0000000000000000000000000000000000000000"
+        },
+        {
+          "release": 1,
+          "build": 3,
+          "setup": "0xc26bb685c88f0691e316daa1e7c97ab04cab5e2e",
+          "implementation": "0x0f950d984eca03fd6c5c90e7796e359217e221a4"
+        },
+        {
+          "release": 1,
+          "build": 4,
+          "setup": "0x34e23a360bea0762ffd2209b8ac17564e3f34305",
+          "implementation": "0x4fdfdd4f5c3fd9679f83b2accf7b38037aee47f1",
+          "current": true
+        }
+      ],
       "other": {
         "governanceERC20": "0xd691854da24ff15c49535f78fbdd2b9b743247e9",
         "governanceWrappedERC20": "0x66f3b24ba1a23deee4ae89dd31c691eaaa56702f"
@@ -111,6 +137,12 @@
           "release": 1,
           "build": 1,
           "setup": "0x2b771482d77bd12c33188e19477dffed59fc1076",
+          "implementation": "0xbab0b8cda2f6e39feb0f2b06fad4e75904deabd6"
+        },
+        {
+          "release": 1,
+          "build": 2,
+          "setup": "0x74cd976f7c5b5a684234d70221f44935d10e208b",
           "implementation": "0xbab0b8cda2f6e39feb0f2b06fad4e75904deabd6",
           "current": true
         }
