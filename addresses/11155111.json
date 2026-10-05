@@ -143,6 +143,13 @@
           "build": 2,
           "setup": "0x6a05c8167b5bcd5152d41ed2bdfd6291f4a6c577",
           "implementation": "0x6c5c467c94bcc594dee61cfa0e8cca24d835d894"
+        },
+        {
+          "release": 1,
+          "build": 3,
+          "setup": "0x598ec34f62e539338a604b6c5523083e1eaed7cf",
+          "implementation": "0x6e01698f168c353aa2d1d26b9e7b27ae858a6204",
+          "current": true
         }
       ]
     },
