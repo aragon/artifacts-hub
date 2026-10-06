@@ -1,0 +1,46 @@
+{
+  "admin": {
+    "v1.1": { "source": "npm:@aragon/osx-ethers@1.3.0", "contracts": ["Admin", "AdminSetup"] },
+    "v1.2": { "source": "npm:@aragon/admin-plugin-artifacts@1.2.6" }
+  },
+  "conditions": {
+    "v1.1": { "source": "git:https://github.com/aragon/condition-library#7198a02ae1e62f3297416feeca64159bf69802c7" }
+  },
+  "crosschain": {
+    "v1.1": { "source": "git:https://github.com/aragon/crosschain#aa1fdfd9c9679cd1b99afcdfa2ea2ca2496c82d9" }
+  },
+  "lock-to-vote": {
+    "v1.1": { "source": "git:https://github.com/aragon/lock-to-vote-plugin#ae1b60a4d29a112d70d6c466e6927bb3a57c5c4d" }
+  },
+  "multisig": {
+    "v1.1": { "source": "npm:@aragon/osx-ethers@1.0.0", "contracts": ["Multisig", "MultisigSetup", "IMultisig"] },
+    "v1.2": { "source": "npm:@aragon/osx-ethers@1.3.0", "contracts": ["Multisig", "MultisigSetup", "IMultisig"] },
+    "v1.3": { "source": "npm:@aragon/multisig-plugin-artifacts@1.3.6" }
+  },
+  "osx": {
+    "v1.4.0": { "source": "git:https://github.com/aragon/osx#84ad09fc9a863c01fcfeec410e9aa683861ccbcb" }
+  },
+  "protocol-factory": {
+    "v1.1": { "source": "git:https://github.com/aragon/protocol-factory#61a4d3d6e578323f988989a45668df0aa7c5e83d" }
+  },
+  "spp": {
+    "v1.1": { "source": "npm:@aragon/staged-proposal-processor-plugin-artifacts@1.1.6" },
+    "v1.2": { "source": "git:https://github.com/aragon/staged-proposal-processor-plugin#e932bb7bcd0601b257aa6d9e55da9c6500332bf9" },
+    "v1.3": { "source": "git:https://github.com/aragon/staged-proposal-processor-plugin#5715646fcca8f92b536ab7b6ec793e1a78cd8890" }
+  },
+  "token-voting": {
+    "v1.1": {
+      "source": "npm:@aragon/osx-ethers@1.2.1",
+      "contracts": ["TokenVoting", "TokenVotingSetup", "GovernanceERC20", "GovernanceWrappedERC20", "IGovernanceWrappedERC20", "IERC20MintableUpgradeable", "IMajorityVoting"]
+    },
+    "v1.2": {
+      "source": "npm:@aragon/osx-ethers@1.3.0",
+      "contracts": ["TokenVoting", "TokenVotingSetup", "GovernanceERC20", "GovernanceWrappedERC20", "IGovernanceWrappedERC20", "IERC20MintableUpgradeable", "IMajorityVoting"]
+    },
+    "v1.3": {
+      "source": "npm:@aragon/token-voting-plugin-artifacts@1.3.5",
+      "contracts": ["TokenVoting", "TokenVotingSetup", "TokenVotingSetupZkSync", "GovernanceERC20", "GovernanceWrappedERC20", "IGovernanceWrappedERC20", "IERC20MintableUpgradeable", "IMajorityVoting", "VotingPowerCondition"]
+    },
+    "v1.4": { "source": "git:https://github.com/aragon/token-voting-plugin#7cc62c351517ace85c10ef5f505d5145641e7e03" }
+  }
+}

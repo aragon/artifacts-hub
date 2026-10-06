@@ -1,0 +1,248 @@
+[
+  {
+    "type": "error",
+    "name": "ADAPTER_NOT_CONFIGURED",
+    "inputs": [
+      {
+        "name": "chainId",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "CALLER_NOT_CCIP_ROUTER",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "CALLER_NOT_LOCAL_ADAPTER",
+    "inputs": [
+      {
+        "name": "caller",
+        "type": "address",
+        "internalType": "address"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "CALLER_NOT_SELF",
+    "inputs": [
+      {
+        "name": "caller",
+        "type": "address",
+        "internalType": "address"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "DELEGATE_CALL_FORBIDDEN",
+    "inputs": [
+      {
+        "name": "context",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "self",
+        "type": "address",
+        "internalType": "address"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "DESTINATION_CHAIN_ID_NOT_SUPPORTED",
+    "inputs": [
+      {
+        "name": "nativeChainId",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "HAS_NO_CODE",
+    "inputs": [
+      {
+        "name": "account",
+        "type": "address",
+        "internalType": "address"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "INCOMPLETE_ADAPTER_CONFIG",
+    "inputs": [
+      {
+        "name": "chainId",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "INCORRECT_CHAIN_MISMATCH",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "INSUFFICIENT_FEE_BALANCE",
+    "inputs": [
+      {
+        "name": "feeToken",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "required",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "available",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "INSUFFICIENT_GAS",
+    "inputs": [
+      {
+        "name": "available",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "required",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "INVALID_CHAIN_ID",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "INVALID_LENGTH_MISMATCH",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "MESSAGE_ALREADY_DELIVERED_OR_EXECUTED",
+    "inputs": [
+      {
+        "name": "txId",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "MESSAGE_ALREADY_EXECUTED_OR_NOT_EXISTS",
+    "inputs": [
+      {
+        "name": "txId",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "MESSAGE_SEND_FAILED",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "NATIVE_CHAIN_ID_ALREADY_MAPPED",
+    "inputs": [
+      {
+        "name": "nativeChainId",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "claimedBy",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "NATIVE_TRANSFER_FAILED",
+    "inputs": [
+      {
+        "name": "to",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "amount",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "REMOTE_NOT_TRUSTED",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "SEND_PATH_NOT_DELEGATECALLED",
+    "inputs": [
+      {
+        "name": "context",
+        "type": "address",
+        "internalType": "address"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "UNEXPECTED_NATIVE_VALUE",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "UNKNOWN_CHAIN_ID",
+    "inputs": [
+      {
+        "name": "chainId",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "UNKNOWN_NATIVE_CHAIN_ID",
+    "inputs": [
+      {
+        "name": "nativeChainId",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "ZERO_ADDRESS",
+    "inputs": []
+  }
+]

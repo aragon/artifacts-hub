@@ -5,7 +5,9 @@
     "ingest": "deno run --allow-read --allow-write --allow-net --allow-env ingest.ts",
     "import-plugin": "deno run --allow-read --allow-write=../addresses --allow-env=INVOCATION_DIR import-plugin.ts",
     "refresh-plugin": "deno run --allow-read --allow-write=../addresses --allow-net --allow-env=INVOCATION_DIR refresh-plugin.ts",
-    "generate-abi": "deno run --allow-read --allow-write generate-abi-ts.ts",
+    "generate-abi": "deno run --allow-read --allow-write=../abi generate-abi-ts.ts",
+    "import-abi": "deno run --allow-read --allow-write --allow-net --allow-env --allow-sys --allow-run=git,forge import-abi.ts",
+    "verify-abi": "deno run --allow-read --allow-write --allow-net --allow-env --allow-run=git verify-abi.ts",
     "test": "deno test --allow-read --allow-write test/"
   },
   "imports": {

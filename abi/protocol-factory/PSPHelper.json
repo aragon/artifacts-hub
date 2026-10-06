@@ -1,0 +1,21 @@
+[
+  {
+    "type": "function",
+    "name": "deployStatic",
+    "inputs": [
+      {
+        "name": "pluginRepoRegistry",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "pluginSetupProcessor",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "nonpayable"
+  }
+]

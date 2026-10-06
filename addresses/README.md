@@ -20,7 +20,7 @@ Every file conforms to the `AddressBook` schema defined in
 | `osx.versions[]`     | OSx protocol snapshots — one per protocol version deployed on the chain. Current entry has `current: true`. |
 | `management.*`       | the OSx-managing DAO + its multisig plugin instance |
 | `ens.*`              | Aragon's ENS stack for this chain (registry, both subdomain registrars, resolver) |
-| `plugins.<slug>`     | one entry per plugin (`admin`, `multisig`, `token-voting`, `spp`, `lock-to-vote`) with `repo`, `ens`, `maintainer`, `versions[]`, optional `other{}` |
+| `plugins.<slug>`     | one entry per plugin (`admin`, `multisig`, `token-voting`, `spp`, `lock-to-vote`, `crosschain`) with `repo`, `ens`, `maintainer`, `versions[]`, optional `other{}` |
 | `conditions.factories[]` | versioned condition factories on this chain |
 | `deployers.*`        | one-shot deployment tools (e.g. `protocolFactory`) |
 

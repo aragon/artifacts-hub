@@ -1,0 +1,21 @@
+[
+  {
+    "type": "function",
+    "name": "deployFactory",
+    "inputs": [
+      {
+        "name": "pluginRepoRegistry",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "pluginRepoFactory",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "nonpayable"
+  }
+]
