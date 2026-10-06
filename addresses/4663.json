@@ -123,7 +123,19 @@
           "release": 1,
           "build": 1,
           "setup": "0x71d8f6788cea105592861df153f53cb78985899a",
-          "implementation": "0xfe3717b672e909eec371bc1c42f89c7090ba40fd",
+          "implementation": "0xfe3717b672e909eec371bc1c42f89c7090ba40fd"
+        },
+        {
+          "release": 1,
+          "build": 2,
+          "setup": "0xd94b2c12fbd1371d157c8c8fcc51080fb630d95a",
+          "implementation": "0x38f1e7631f04902c6f79a98f2c0a52221ea4908a"
+        },
+        {
+          "release": 1,
+          "build": 3,
+          "setup": "0xd94b2c12fbd1371d157c8c8fcc51080fb630d95a",
+          "implementation": "0x38f1e7631f04902c6f79a98f2c0a52221ea4908a",
           "current": true
         }
       ]
