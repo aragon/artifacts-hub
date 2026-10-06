@@ -34,12 +34,12 @@ export const OsxCore = z
   .default({});
 
 // Singleton helpers deployed alongside a specific OSx version. Not part of core:
-// they're auxiliary contracts protocol-factory installs to smooth out plugin
-// installation (placeholderSetup) and delegatecall execution (globalExecutor).
+// auxiliary contracts protocol-factory installs for delegatecall execution
+// (globalExecutor). Placeholder setups are not tracked here: each plugin build
+// that uses one carries `placeholder: true` instead.
 export const OsxHelpers = z
   .object({
     globalExecutor: Address.optional(),
-    placeholderSetup: Address.optional(),
   })
   .default({});
 
@@ -56,16 +56,19 @@ export const OsxVersion = z.object({
 });
 
 // A single (release, build) of a plugin. `setup` is required (that's what
-// PluginRepo.getVersion returns). `implementation` is optional because some
-// plugin patterns don't have a distinct impl address. `current: true` is set
-// on the highest release/build in enrich — under rolling-release semantics
-// that's always the newest, but marking it inline lets consumers do
+// PluginRepo.getVersion returns). `implementation` is absent when the setup
+// has no distinct impl (placeholders, zkSync Admin); it is never 0x0.
+// `placeholder: true` marks a build whose setup is an OSx PlaceholderSetup
+// (published only to keep build numbers aligned across chains): not the
+// plugin, never installable, never `current`. `current: true` is set on the
+// highest non-placeholder release/build, so consumers can do
 // `versions.find(v => v.current)` instead of `versions[versions.length - 1]`.
 export const PluginVersion = z.object({
   release: z.number().int().positive(),
   build: z.number().int().positive(),
   setup: Address,
-  implementation: Address.optional(),
+  implementation: Address.refine((a) => !/^0x0{40}$/.test(a), "zero address: omit implementation instead").optional(),
+  placeholder: z.literal(true).optional(),
   current: z.boolean().optional(),
   // Additional addresses associated with this plugin version: canonical
   // LockManager, shipped conditions, helper singletons, whatever the plugin
@@ -191,3 +194,11 @@ export type OsxVersion = z.infer<typeof OsxVersion>;
 export type Management = z.infer<typeof Management>;
 export type Ens = z.infer<typeof Ens>;
 export type PluginArtifact = z.infer<typeof PluginArtifact>;
+
+// First issue of a failed parse as "path.to.field: message", for one-line CLI errors.
+export function firstZodError(err: z.ZodError): string {
+  const i = err.issues[0];
+  if (!i) return "unknown parse error";
+  const p = i.path.length ? i.path.map(String).join(".") : "(root)";
+  return `${p}: ${i.message}`;
+}

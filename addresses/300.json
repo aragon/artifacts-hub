@@ -40,13 +40,12 @@
           "release": 1,
           "build": 1,
           "setup": "0xb0e4daebe52e65f0bafb53342dacbb89bf5c6e9b",
-          "implementation": "0x0000000000000000000000000000000000000000"
+          "placeholder": true
         },
         {
           "release": 1,
           "build": 2,
           "setup": "0x898084951ce9a625fba9fcfc364211d3e3596bc7",
-          "implementation": "0x0000000000000000000000000000000000000000",
           "current": true
         }
       ]
@@ -60,7 +59,7 @@
           "release": 1,
           "build": 1,
           "setup": "0xb0e4daebe52e65f0bafb53342dacbb89bf5c6e9b",
-          "implementation": "0x0000000000000000000000000000000000000000"
+          "placeholder": true
         },
         {
           "release": 1,
@@ -86,7 +85,7 @@
           "release": 1,
           "build": 1,
           "setup": "0xb0e4daebe52e65f0bafb53342dacbb89bf5c6e9b",
-          "implementation": "0x0000000000000000000000000000000000000000"
+          "placeholder": true
         },
         {
           "release": 1,

@@ -14,8 +14,7 @@
           "pluginSetupProcessor": "0x4ca8230abd9427618f3a6bca7c814c0e59821235"
         },
         "helpers": {
-          "globalExecutor": "0x938da6b9b16078a999e33fe4e37b243c40c7680b",
-          "placeholderSetup": "0x780b78c283f102d30ea89f2df5b9745361112b51"
+          "globalExecutor": "0x938da6b9b16078a999e33fe4e37b243c40c7680b"
         },
         "current": true
       }
@@ -55,7 +54,7 @@
           "release": 1,
           "build": 1,
           "setup": "0x780b78c283f102d30ea89f2df5b9745361112b51",
-          "implementation": "0x0000000000000000000000000000000000000000"
+          "placeholder": true
         },
         {
           "release": 1,
@@ -75,13 +74,13 @@
           "release": 1,
           "build": 1,
           "setup": "0x780b78c283f102d30ea89f2df5b9745361112b51",
-          "implementation": "0x0000000000000000000000000000000000000000"
+          "placeholder": true
         },
         {
           "release": 1,
           "build": 2,
           "setup": "0x780b78c283f102d30ea89f2df5b9745361112b51",
-          "implementation": "0x0000000000000000000000000000000000000000"
+          "placeholder": true
         },
         {
           "release": 1,
@@ -101,19 +100,19 @@
           "release": 1,
           "build": 1,
           "setup": "0x780b78c283f102d30ea89f2df5b9745361112b51",
-          "implementation": "0x0000000000000000000000000000000000000000"
+          "placeholder": true
         },
         {
           "release": 1,
           "build": 2,
           "setup": "0x780b78c283f102d30ea89f2df5b9745361112b51",
-          "implementation": "0x0000000000000000000000000000000000000000"
+          "placeholder": true
         },
         {
           "release": 1,
           "build": 3,
           "setup": "0x780b78c283f102d30ea89f2df5b9745361112b51",
-          "implementation": "0x0000000000000000000000000000000000000000"
+          "placeholder": true
         },
         {
           "release": 1,
@@ -137,7 +136,19 @@
           "release": 1,
           "build": 1,
           "setup": "0x71d8f6788cea105592861df153f53cb78985899a",
-          "implementation": "0xfe3717b672e909eec371bc1c42f89c7090ba40fd",
+          "implementation": "0xfe3717b672e909eec371bc1c42f89c7090ba40fd"
+        },
+        {
+          "release": 1,
+          "build": 2,
+          "setup": "0x676dd7f0be1988d4495a113a0178753250a3adbd",
+          "implementation": "0xfe3717b672e909eec371bc1c42f89c7090ba40fd"
+        },
+        {
+          "release": 1,
+          "build": 3,
+          "setup": "0x266341ced5088cfc1f71f725f988d89e2d15b428",
+          "implementation": "0x00a90aada93e7a402afe0c412307c7ed1dee8ade",
           "current": true
         }
       ]

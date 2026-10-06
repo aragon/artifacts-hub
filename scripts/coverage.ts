@@ -5,10 +5,10 @@
 // Slot tiers:
 //   - required  : must be present on every chain
 //   - optional  : chain-scoped absence is fine (deployers.protocolFactory,
-//                 osx.helpers.placeholderSetup — only present on chains
-//                 deployed via ProtocolFactory)
-//   - chain-conditional: required only on specific chains (e.g. memberRegistry
-//                 lives only on mainnet)
+//                 only present on chains deployed via ProtocolFactory)
+//   - chain-conditional: exists only on specific chains (e.g. memberRegistry
+//                 needs the official ENS, which only mainnet has). Not a gap
+//                 anywhere else: those chains skip the slot entirely.
 
 import { resolve } from "@std/path";
 import { AddressBook } from "./schema.ts";
@@ -19,7 +19,7 @@ const ADDRESSES_DIR = resolve(HERE, "..", "addresses");
 type SlotSpec = {
   path: string;
   optional?: boolean;
-  onlyOn?: number[];    // if set, slot is required only on these chainIds
+  onlyOn?: number[];    // if set, slot only exists on these chainIds
 };
 
 const SLOT_SPECS: SlotSpec[] = [
@@ -31,9 +31,8 @@ const SLOT_SPECS: SlotSpec[] = [
   { path: "osx.versions[0].core.pluginRepoRegistry" },
   { path: "osx.versions[0].core.pluginSetupProcessor" },
   { path: "osx.versions[0].core.memberRegistry", onlyOn: [1] },
-  // OSx helpers — globalExecutor required, placeholderSetup only on fresh 1.4 deploys.
+  // OSx helpers.
   { path: "osx.versions[0].helpers.globalExecutor" },
-  { path: "osx.versions[0].helpers.placeholderSetup", optional: true },
   // Management
   { path: "management.dao" },
   { path: "management.daoMultisig" },
@@ -72,13 +71,6 @@ function getPath(obj: unknown, path: string): unknown {
     if (cur === undefined) return undefined;
   }
   return cur;
-}
-
-// Whether a spec is required for a given chainId (applies onlyOn if present).
-function isRequiredFor(spec: SlotSpec, chainId: number): boolean {
-  if (spec.optional) return false;
-  if (spec.onlyOn && !spec.onlyOn.includes(chainId)) return false;
-  return true;
 }
 
 type PerNetwork = {
@@ -123,11 +115,12 @@ async function main() {
     const missing: string[] = [];
     const missingOptional: string[] = [];
     for (const spec of SLOT_SPECS) {
+      if (spec.onlyOn && !spec.onlyOn.includes(book.chainId)) continue;
       const v = getPath(book, spec.path);
       if (v !== undefined) continue;
       // Deprecated chains: never required, so missing slots just go to the
       // optional bucket and never fail the gate.
-      const required = !book.deprecated && isRequiredFor(spec, book.chainId);
+      const required = !book.deprecated && !spec.optional;
       (required ? missing : missingOptional).push(spec.path);
     }
     const status: PerNetwork["status"] = book.deprecated
@@ -177,8 +170,7 @@ async function main() {
   const bySection = new Map<string, SlotGap[]>();
   for (const spec of SLOT_SPECS) {
     const count = rows.filter(r =>
-      (spec.optional || (spec.onlyOn && !spec.onlyOn.includes(r.chainId))
-        ? r.missingOptional : r.missing).includes(spec.path)
+      (spec.optional ? r.missingOptional : r.missing).includes(spec.path)
     ).length;
     if (!count) continue;
     const section = spec.path.split(/\.|\[/)[0];
@@ -205,8 +197,7 @@ async function main() {
     const gaps: Gap[] = [];
     for (const spec of SLOT_SPECS) {
       const missingOn = rows
-        .filter(r => (spec.optional || (spec.onlyOn && !spec.onlyOn.includes(r.chainId))
-          ? r.missingOptional : r.missing).includes(spec.path))
+        .filter(r => (spec.optional ? r.missingOptional : r.missing).includes(spec.path))
         .map(r => r.network);
       if (missingOn.length) gaps.push({ slot: spec.path, missingOn, optional: !!spec.optional });
     }

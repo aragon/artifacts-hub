@@ -14,8 +14,7 @@
           "pluginSetupProcessor": "0xfd4dbd760e253b7ee0ce81d47946dadd2531f1fc"
         },
         "helpers": {
-          "globalExecutor": "0x7b73f551167abfe2585a6bae6def948489c1855c",
-          "placeholderSetup": "0x610cbbe9c9cdd5c9b03afbab19300c4656238f08"
+          "globalExecutor": "0x7b73f551167abfe2585a6bae6def948489c1855c"
         },
         "current": true
       }
@@ -41,13 +40,13 @@
           "release": 1,
           "build": 1,
           "setup": "0x610cbbe9c9cdd5c9b03afbab19300c4656238f08",
-          "implementation": "0x0000000000000000000000000000000000000000"
+          "placeholder": true
         },
         {
           "release": 1,
           "build": 2,
           "setup": "0x610cbbe9c9cdd5c9b03afbab19300c4656238f08",
-          "implementation": "0x0000000000000000000000000000000000000000"
+          "placeholder": true
         },
         {
           "release": 1,
@@ -81,7 +80,19 @@
           "release": 1,
           "build": 1,
           "setup": "0x089cc95fe03be5d6451af638a71cf24a48877a5c",
-          "implementation": "0x6ab6528e0d5a0f7c5738adfe6bc92dabc501d506",
+          "implementation": "0x6ab6528e0d5a0f7c5738adfe6bc92dabc501d506"
+        },
+        {
+          "release": 1,
+          "build": 2,
+          "setup": "0x74cd976f7c5b5a684234d70221f44935d10e208b",
+          "implementation": "0x6ab6528e0d5a0f7c5738adfe6bc92dabc501d506"
+        },
+        {
+          "release": 1,
+          "build": 3,
+          "setup": "0xc8837f6b124d8df780f5cf9af343b25643040110",
+          "implementation": "0xa731c9a876a2c4cfb40856dc47d12c5339f66596",
           "current": true
         }
       ]
@@ -95,7 +106,7 @@
           "release": 1,
           "build": 1,
           "setup": "0x610cbbe9c9cdd5c9b03afbab19300c4656238f08",
-          "implementation": "0x0000000000000000000000000000000000000000"
+          "placeholder": true
         },
         {
           "release": 1,
@@ -115,13 +126,13 @@
           "release": 1,
           "build": 1,
           "setup": "0x610cbbe9c9cdd5c9b03afbab19300c4656238f08",
-          "implementation": "0x0000000000000000000000000000000000000000"
+          "placeholder": true
         },
         {
           "release": 1,
           "build": 2,
           "setup": "0x610cbbe9c9cdd5c9b03afbab19300c4656238f08",
-          "implementation": "0x0000000000000000000000000000000000000000"
+          "placeholder": true
         },
         {
           "release": 1,

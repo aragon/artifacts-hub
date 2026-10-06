@@ -4,13 +4,19 @@
     "coverage": "deno run --allow-read=../addresses,./ coverage.ts",
     "ingest": "deno run --allow-read --allow-write --allow-net --allow-env ingest.ts",
     "import-plugin": "deno run --allow-read --allow-write=../addresses --allow-env=INVOCATION_DIR import-plugin.ts",
-    "generate-abi": "deno run --allow-read --allow-write generate-abi-ts.ts"
+    "refresh-plugin": "deno run --allow-read --allow-write=../addresses --allow-net --allow-env=INVOCATION_DIR refresh-plugin.ts",
+    "generate-abi": "deno run --allow-read --allow-write generate-abi-ts.ts",
+    "test": "deno test --allow-read --allow-write test/"
   },
   "imports": {
     "zod": "npm:zod@^4",
     "viem": "npm:viem@^2",
     "@std/fs": "jsr:@std/fs@^1",
-    "@std/path": "jsr:@std/path@^1"
+    "@std/path": "jsr:@std/path@^1",
+    "@std/assert": "jsr:@std/assert@^1"
   },
-  "fmt": { "singleQuote": false, "lineWidth": 100 }
+  "fmt": {
+    "singleQuote": false,
+    "lineWidth": 100
+  }
 }
