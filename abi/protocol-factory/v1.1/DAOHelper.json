@@ -1,0 +1,26 @@
+[
+  {
+    "type": "function",
+    "name": "deployFactory",
+    "inputs": [
+      {
+        "name": "daoRegistry",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "pluginSetupProcessor",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "daoFactory",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "nonpayable"
+  }
+]

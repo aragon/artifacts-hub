@@ -195,6 +195,29 @@ export type Management = z.infer<typeof Management>;
 export type Ens = z.infer<typeof Ens>;
 export type PluginArtifact = z.infer<typeof PluginArtifact>;
 
+// abi/sources.json: where each versioned ABI folder comes from. Keyed by
+// component slug, then by version folder name (`v1.2`, `v1.4.0`).
+//   npm:<package>@<version>      — a published package; ABIs are read from its
+//                                  `<Name>ABI` exports or TypeChain `<Name>__factory.abi`.
+//   git:<https url>#<commit sha> — cloned, `forge build`, every non-abstract
+//                                  contract, interface and library declared under
+//                                  `src/` with a non-empty ABI.
+// `contracts` narrows a source that bundles more than this component (e.g.
+// the pre-split `@aragon/osx-ethers` packages carried the plugins too). npm
+// packages say nothing about abstract contracts, so their list must leave them out.
+export const AbiVersionDir = z.string().regex(/^v\d+(\.\d+)+$/, "must look like v1.2 or v1.4.0");
+export const AbiSource = z.object({
+  source: z.union([
+    z.string().regex(/^npm:(@[\w.-]+\/)?[\w.-]+@\d+\.\d+\.\d+$/, "npm:<package>@<x.y.z>"),
+    z.string().regex(/^git:https:\/\/[^#\s]+#[0-9a-f]{40}$/, "git:<https url>#<40-char sha>"),
+  ]),
+  contracts: z.array(z.string().regex(/^\w+$/)).nonempty().optional(),
+}).strict();
+export const AbiSources = z.record(z.string(), z.record(AbiVersionDir, AbiSource));
+
+export type AbiSource = z.infer<typeof AbiSource>;
+export type AbiSources = z.infer<typeof AbiSources>;
+
 // First issue of a failed parse as "path.to.field: message", for one-line CLI errors.
 export function firstZodError(err: z.ZodError): string {
   const i = err.issues[0];

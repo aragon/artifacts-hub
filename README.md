@@ -6,7 +6,7 @@ Consumed as a git submodule, no NPM, no build step.
 Two symmetrical trees:
 
 - [`addresses/`](./addresses) — `<chainId>.json` per chain, with `<network>.json` symlinks for grep-friendly names. Every file has the same shape (Zod source of truth in [`scripts/schema.ts`](./scripts/schema.ts)).
-- [`abi/`](./abi) — `<component>/<Contract>.json` per contract, plus generated `index.ts` files with viem-compatible `as const` bindings.
+- [`abi/`](./abi) — `<component>/<Contract>.json` per contract, plus generated `index.ts` files with viem-compatible `as const` bindings. Every version referenced by `addresses/` has its own `<component>/v<version>/` folder; the component root mirrors the latest one.
 
 ## Get started
 
@@ -44,6 +44,9 @@ admin.AdminABI;  tokenVoting.TokenVotingABI;
 
 // Plain JSON when you don't need viem's `as const` inference
 import Multisig from "./lib/artifacts-hub/abi/multisig/Multisig.json";
+
+// A specific version: same shape, under v<release>.<build> (plugins) or v<protocolVersion> (osx)
+import { TokenVotingABI } from "./lib/artifacts-hub/abi/token-voting/v1.3";
 ```
 
 ## `addresses/` — the address book
@@ -95,6 +98,19 @@ One folder per source component; one JSON per contract. Slugs match `addresses/`
 | `crosschain`        | `aragon/crosschain`                         |
 | `conditions`        | `aragon/condition-library`                  |
 | `protocol-factory`  | `aragon/protocol-factory`                   |
+
+Versions live next to the latest:
+
+```
+abi/<slug>/v<version>/<Contract>.json   # the ABI at that version
+abi/<slug>/v<version>/index.ts          # generated, same exports as the root
+abi/<slug>/<Contract>.json              # generated copy of the latest version folder
+abi/<slug>/index.ts                     # export * from "./<latest>/index.ts"
+```
+
+Plugins use `v<release>.<build>`, matching `plugins.<slug>.versions` in the address book (`abi/multisig/v1.2`). OSx uses its protocol version (`abi/osx/v1.4.0`). Components without an on-chain version (`crosschain`, `conditions`, `protocol-factory`) start at `v1.1`. A version folder can gain contracts over time, but an ABI already in it never changes: a changed ABI means a new version.
+
+Placeholder builds (`placeholder: true` in the address book) point to the OSx `PlaceholderSetup`, not to the plugin, so `abi/<slug>/v<version>` does not describe them. `just verify-abi` skips and lists them per chain.
 
 Each folder carries a generated `index.ts` exporting every contract as `<Contract>ABI` with `as const` (viem-friendly). The top-level [`abi/index.ts`](./abi/index.ts) re-exports each component under a camelCase namespace (`lock-to-vote` → `lockToVote`, etc.).
 
@@ -199,14 +215,38 @@ builds, or as a periodic sanity sweep across all chains.
 
 ## Refreshing ABIs
 
-`just generate-abi` regenerates `abi/**/index.ts` from whatever JSONs are on disk. Run it after any hand-edit or fresh drop of an ABI JSON.
+Every version folder is pinned in [`abi/sources.json`](./abi/sources.json):
 
-To update a component's ABIs, drop the new `<Contract>.json` files into `abi/<slug>/` and rerun `just generate-abi`.
+```json
+"spp": {
+  "v1.3": { "source": "git:https://github.com/aragon/staged-proposal-processor-plugin#5715646f…" }
+},
+"multisig": {
+  "v1.2": { "source": "npm:@aragon/osx-ethers@1.3.0", "contracts": ["Multisig", "MultisigSetup", "IMultisig"] }
+}
+```
+
+- `git:<https url>#<sha>`: cloned into a temp dir, `forge build`, and every contract, interface and library declared under `src/` with a non-empty ABI is taken. Abstract contracts are skipped: they can't be deployed, and their functions are already in the ABI of every contract that extends them. Needs `git` and `forge`. A repo or submodule that isn't reachable over HTTPS (private) is cloned from the sibling checkout `../<repo>` instead, so keep one next to this repo.
+- `npm:<package>@<version>`: for builds that predate the Foundry repos (Hardhat era). Reads `<Name>ABI` exports or legacy TypeChain `<Name>__factory.abi`.
+- `contracts` (optional) narrows a source that bundles other components. npm packages carry no "abstract" information, so their list must leave abstract contracts out.
+
+To add a version: add its entry to `sources.json`, then
+
+```bash
+just import-abi <slug> <version>   # fetch into abi/<slug>/<version>/, regenerate index.ts + root copies
+just verify-abi                    # check the new ABI against every deployed setup/implementation
+```
+
+`import-abi` never changes an existing ABI: identical files are a no-op, new contracts are added, and a different ABI for an existing contract is a hard error. To replace a wrong file on purpose, delete it in a reviewed commit and re-import.
+
+`verify-abi` takes RPC URLs from a temporary clone of [aragon/just-foundry](https://github.com/aragon/just-foundry) (`networks/<network>.env`) and checks that every function selector of the version's ABI is present in the deployed code. Deprecated chains are skipped.
+
+`just generate-abi` rebuilds every generated file from the version folders; `just generate-abi --check` (part of `just validate`) fails when one is stale.
 
 ## Commands
 
 ```bash
-just validate           # Zod-validate every addresses/*.json
+just validate           # Zod-validate every addresses/*.json + abi/ generated files up to date
 just test               # unit tests for scripts/
 just coverage           # per-network table + section gap summary
 just coverage --gaps    # invert to slot-centric view
@@ -214,7 +254,9 @@ just coverage --json    # machine-readable output for scripting
 just ingest <chainId> <rpcUrl> <pfAddress> [network]
 just import-plugin <path>            # merge PluginArtifact envelope(s) into addresses/<chainId>.json
 just refresh-plugin <slug> <chainId> <rpcUrl>   # enumerate all on-chain versions of a plugin, merge into the book
-just generate-abi       # regenerate abi/**/index.ts from JSONs on disk
+just import-abi [slug] [version]     # fetch the ABI versions pinned in abi/sources.json
+just verify-abi [network]            # check versioned ABIs against deployed plugin contracts
+just generate-abi [--check]          # regenerate abi/**/index.ts + root copies of the latest version
 ```
 
 `just coverage` exits non-zero when a chain is missing a **required** slot; optional gaps (e.g. `deployers.protocolFactory` on chains that predate the PF concept) don't fail the gate. See [`scripts/coverage.ts`](./scripts/coverage.ts) for the exact required/optional split.

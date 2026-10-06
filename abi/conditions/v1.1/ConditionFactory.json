@@ -1,0 +1,174 @@
+[
+  {
+    "type": "function",
+    "name": "deployExecuteSelectorCondition",
+    "inputs": [
+      {
+        "name": "_dao",
+        "type": "address",
+        "internalType": "contract IDAO"
+      },
+      {
+        "name": "_initialEntries",
+        "type": "tuple[]",
+        "internalType": "struct ExecuteSelectorCondition.SelectorTarget[]",
+        "components": [
+          {
+            "name": "where",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "selectors",
+            "type": "bytes4[]",
+            "internalType": "bytes4[]"
+          }
+        ]
+      }
+    ],
+    "outputs": [
+      {
+        "name": "newContract",
+        "type": "address",
+        "internalType": "contract ExecuteSelectorCondition"
+      }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "deployExecuteSelectorCrossChainCondition",
+    "inputs": [
+      {
+        "name": "_dao",
+        "type": "address",
+        "internalType": "contract IDAO"
+      },
+      {
+        "name": "_chainIds",
+        "type": "uint256[]",
+        "internalType": "uint256[]"
+      },
+      {
+        "name": "_initialEntries",
+        "type": "tuple[]",
+        "internalType": "struct ExecuteSelectorCrossChainCondition.SelectorTarget[]",
+        "components": [
+          {
+            "name": "where",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "selectors",
+            "type": "bytes4[]",
+            "internalType": "bytes4[]"
+          }
+        ]
+      }
+    ],
+    "outputs": [
+      {
+        "name": "newContract",
+        "type": "address",
+        "internalType": "contract ExecuteSelectorCrossChainCondition"
+      }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "deploySafeOwnerCondition",
+    "inputs": [
+      {
+        "name": "_safe",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "newContract",
+        "type": "address",
+        "internalType": "contract SafeOwnerCondition"
+      }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "deploySelectorCondition",
+    "inputs": [
+      {
+        "name": "_dao",
+        "type": "address",
+        "internalType": "contract IDAO"
+      },
+      {
+        "name": "_initialSelectors",
+        "type": "bytes4[]",
+        "internalType": "bytes4[]"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "newContract",
+        "type": "address",
+        "internalType": "contract SelectorCondition"
+      }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "event",
+    "name": "ExecuteSelectorConditionDeployed",
+    "inputs": [
+      {
+        "name": "newContract",
+        "type": "address",
+        "indexed": false,
+        "internalType": "contract ExecuteSelectorCondition"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "ExecuteSelectorCrossChainConditionDeployed",
+    "inputs": [
+      {
+        "name": "newContract",
+        "type": "address",
+        "indexed": false,
+        "internalType": "contract ExecuteSelectorCrossChainCondition"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "SafeOwnerConditionDeployed",
+    "inputs": [
+      {
+        "name": "newContract",
+        "type": "address",
+        "indexed": false,
+        "internalType": "contract SafeOwnerCondition"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "SelectorConditionDeployed",
+    "inputs": [
+      {
+        "name": "newContract",
+        "type": "address",
+        "indexed": false,
+        "internalType": "contract SelectorCondition"
+      }
+    ],
+    "anonymous": false
+  }
+]

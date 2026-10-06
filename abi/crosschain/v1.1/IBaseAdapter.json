@@ -1,0 +1,131 @@
+[
+  {
+    "type": "function",
+    "name": "CROSS_CHAIN_CONTROLLER",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "fromNativeChainId",
+    "inputs": [
+      {
+        "name": "_chainId",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "quoteFee",
+    "inputs": [
+      {
+        "name": "_receiver",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "_destinationChainId",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "_gasLimit",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "_message",
+        "type": "bytes",
+        "internalType": "bytes"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "feeToken",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "fee",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "sendMessage",
+    "inputs": [
+      {
+        "name": "_receiver",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "_destinationChainId",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "_gasLimit",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "_message",
+        "type": "bytes",
+        "internalType": "bytes"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "messageId",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "fee",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "payable"
+  },
+  {
+    "type": "function",
+    "name": "toNativeChainId",
+    "inputs": [
+      {
+        "name": "_chainId",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  }
+]

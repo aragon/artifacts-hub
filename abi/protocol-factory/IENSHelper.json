@@ -1,0 +1,46 @@
+[
+  {
+    "type": "function",
+    "name": "deployStatic",
+    "inputs": [
+      {
+        "name": "owner",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "daoRootDomain",
+        "type": "bytes",
+        "internalType": "bytes"
+      },
+      {
+        "name": "pluginSubdomain",
+        "type": "bytes",
+        "internalType": "bytes"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "ensRegistry",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "publicResolver",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "DAO_ETH_NODE",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      },
+      {
+        "name": "PLUGIN_DAO_ETH_NODE",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      }
+    ],
+    "stateMutability": "nonpayable"
+  }
+]

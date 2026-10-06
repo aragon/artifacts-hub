@@ -1,0 +1,90 @@
+[
+  {
+    "type": "constructor",
+    "inputs": [
+      {
+        "name": "_safe",
+        "type": "address",
+        "internalType": "contract IOwnerManager"
+      }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "isGranted",
+    "inputs": [
+      {
+        "name": "_where",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "_who",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "_permissionId",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      },
+      {
+        "name": "_data",
+        "type": "bytes",
+        "internalType": "bytes"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool",
+        "internalType": "bool"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "safe",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "contract IOwnerManager"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "supportsInterface",
+    "inputs": [
+      {
+        "name": "_interfaceId",
+        "type": "bytes4",
+        "internalType": "bytes4"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool",
+        "internalType": "bool"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "error",
+    "name": "InvalidSafe",
+    "inputs": [
+      {
+        "name": "invalidAddress",
+        "type": "address",
+        "internalType": "address"
+      }
+    ]
+  }
+]

@@ -1,0 +1,400 @@
+[
+  {
+    "type": "constructor",
+    "inputs": [
+      {
+        "name": "_token",
+        "type": "address",
+        "internalType": "contract IERC20"
+      }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "activeProposalsCreatedBy",
+    "inputs": [
+      {
+        "name": "_creator",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "_result",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "canVote",
+    "inputs": [
+      {
+        "name": "_proposalId",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "_voter",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "_voteOption",
+        "type": "uint8",
+        "internalType": "enum IMajorityVoting.VoteOption"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool",
+        "internalType": "bool"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getLockedBalance",
+    "inputs": [
+      {
+        "name": "_account",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "knownProposalIdAt",
+    "inputs": [
+      {
+        "name": "_index",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "knownProposalIdCreators",
+    "inputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "knownProposalIdsLength",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "lock",
+    "inputs": [
+      {
+        "name": "_amount",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "lock",
+    "inputs": [],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "lockAndVote",
+    "inputs": [
+      {
+        "name": "_proposalId",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "_voteOption",
+        "type": "uint8",
+        "internalType": "enum IMajorityVoting.VoteOption"
+      },
+      {
+        "name": "_amount",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "lockAndVote",
+    "inputs": [
+      {
+        "name": "_proposalId",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "_voteOption",
+        "type": "uint8",
+        "internalType": "enum IMajorityVoting.VoteOption"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "plugin",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "contract ILockToGovernBase"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "proposalCreated",
+    "inputs": [
+      {
+        "name": "_proposalId",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "_creator",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "proposalSettled",
+    "inputs": [
+      {
+        "name": "_proposalId",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "pruneProposals",
+    "inputs": [
+      {
+        "name": "_count",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "setPluginAddress",
+    "inputs": [
+      {
+        "name": "_newPluginAddress",
+        "type": "address",
+        "internalType": "contract ILockToGovernBase"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "settings",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "pluginMode",
+        "type": "uint8",
+        "internalType": "enum PluginMode"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "token",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "_token",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "unlock",
+    "inputs": [],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "vote",
+    "inputs": [
+      {
+        "name": "_proposalId",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "_voteOption",
+        "type": "uint8",
+        "internalType": "enum IMajorityVoting.VoteOption"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "event",
+    "name": "BalanceLocked",
+    "inputs": [
+      {
+        "name": "voter",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "amount",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "BalanceUnlocked",
+    "inputs": [
+      {
+        "name": "voter",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "amount",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "ProposalSettled",
+    "inputs": [
+      {
+        "name": "proposalId",
+        "type": "uint256",
+        "indexed": true,
+        "internalType": "uint256"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "error",
+    "name": "InvalidPlugin",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidPluginAddress",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "LocksStillActive",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "NoBalance",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "ProposalCreatedStillActive",
+    "inputs": [
+      {
+        "name": "proposalId",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "SetPluginAddressForbidden",
+    "inputs": []
+  }
+]
