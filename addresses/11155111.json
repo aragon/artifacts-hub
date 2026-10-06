@@ -4,7 +4,7 @@
   "osx": {
     "versions": [
       {
-        "protocolVersion": "unknown",
+        "protocolVersion": "1.4.0",
         "core": {
           "daoBase": "0x824d4aad1cbf2327c4c429e3c97f968ee19344f8",
           "daoFactory": "0xb815791c233807d39b7430127975244b36c19c8e",
