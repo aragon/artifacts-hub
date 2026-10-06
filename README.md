@@ -59,15 +59,18 @@ Every file has the same top-level shape. Common lookups:
 | Chain's ENSRegistry                      | `ens.registry` |
 | Latest plugin build (setup + impl)       | `plugins["<slug>"].versions.find(v => v.current)` |
 | All historical plugin builds             | `plugins["<slug>"].versions` |
+| Installable plugin builds                | `plugins["<slug>"].versions.filter(v => !v.placeholder)` |
 | Governance token base (ERC20)            | `plugins["token-voting"].other.governanceERC20` |
 | Current SafeOwner condition factory      | `conditions.factories.find(f => f.current).address` |
 | ProtocolFactory (when the chain has one) | `deployers.protocolFactory` |
 
 Addresses are lowercased on parse — never rely on checksum casing for identity. Arrays are ascending, and the current entry carries `current: true`.
 
+**Placeholder builds.** Chains that start a plugin at a later build publish the earlier build numbers with the OSx `PlaceholderSetup`, so build numbers line up across chains. Those entries carry `placeholder: true`: they are not the plugin, can't be installed and are never `current`. `ingest` and `refresh-plugin` detect them on-chain (the setup reverts `prepareInstallation` with `PlaceholderSetupCannotBeUsed()`). `implementation` is omitted when a setup has none (placeholders, zkSync Admin); it is never `0x0`.
+
 Schema outline:
 
-- **`osx.versions[]`** — one entry per protocol version deployed on the chain. `core.*` = the framework contracts, `helpers.*` = auxiliary singletons (`globalExecutor`; `placeholderSetup` on fresh 1.4 deploys).
+- **`osx.versions[]`** — one entry per protocol version deployed on the chain. `core.*` = the framework contracts, `helpers.*` = auxiliary singletons (`globalExecutor`).
 - **`management.*`** — the OSx-managing DAO + its multisig plugin instance.
 - **`ens.*`** — Aragon's ENS stack (registry, plugin- and dao-subdomain registrars, public resolver).
 - **`plugins.<slug>`** — one entry per plugin (`admin`, `multisig`, `token-voting`, `spp`, `lock-to-vote`, `crosschain`) with `repo`, `ens`, `maintainer`, versioned setup+impl, and optional `other{}` for plugin-scoped auxiliary addresses.
@@ -162,7 +165,8 @@ Invariants the script enforces (source: [`scripts/import-plugin.ts`](./scripts/i
 
 - **Identity fields** (`repo`, `ens`, `maintainer`) are constants per (chainId, slug). Any mismatch against an existing entry is a hard error — ownership transfers or address changes belong in a reviewed PR, not through import.
 - **Versions are additive.** Same `(release, build)` with the same `(setup, implementation, other)` is a no-op (re-runs are safe). Same `(release, build)` with different addresses is a hard error.
-- **`current: true`** is derived: after any merge, only the highest `(release, build)` carries it. `versions[]` is re-sorted ascending.
+- **`current: true`** is derived: after any merge, only the highest non-placeholder `(release, build)` carries it. `versions[]` is re-sorted ascending.
+- **Missing fields are adopted.** A known version that lacks `implementation` or `placeholder: true` picks it up from the incoming data (reported as an update). A placeholder with an implementation in the book is a hard error.
 - Chain must be tracked (`addresses/<chainId>.json` must exist) and must **not** be marked `deprecated: true`. Ingest new chains with `just ingest` first.
 - Final book is re-parsed through Zod before writing, so addresses land canonically lowercased regardless of the artifact's casing.
 
@@ -187,7 +191,7 @@ same on-chain enumerator `just ingest` uses (walking `latestRelease()` +
 the result to the same merge core as `just import-plugin` — so identity
 mismatches, `(release, build)` collisions with different addresses, and
 deprecated-chain refusals all behave identically. New builds append and
-`current: true` re-stamps on the highest `(release, build)`.
+`current: true` re-stamps on the highest non-placeholder `(release, build)`, and placeholder builds are flagged as they are read.
 
 Use it whenever a chain's `plugins.<slug>.versions` looks short — typically
 right after adopting the envelope flow on a plugin that has historical
@@ -203,6 +207,7 @@ To update a component's ABIs, drop the new `<Contract>.json` files into `abi/<sl
 
 ```bash
 just validate           # Zod-validate every addresses/*.json
+just test               # unit tests for scripts/
 just coverage           # per-network table + section gap summary
 just coverage --gaps    # invert to slot-centric view
 just coverage --json    # machine-readable output for scripting

@@ -20,9 +20,9 @@
 
 import { resolve } from "@std/path";
 import type { Address } from "viem";
-import { AddressBook, type Plugin } from "./schema.ts";
+import { AddressBook, type Plugin, firstZodError } from "./schema.ts";
 import { mergePlugin, MergeError } from "./lib/merge-plugin.ts";
-import { readAllPluginRepoVersions } from "./lib/read-plugin-repo.ts";
+import { readAllPluginRepoVersions, toPluginVersion } from "./lib/read-plugin-repo.ts";
 import { ensForSlug } from "./lib/plugin-catalog.ts";
 
 const HERE = import.meta.dirname!;
@@ -80,12 +80,7 @@ async function main() {
       repo,
       ens: bookEntry.ens ?? ensForSlug(slug),
       maintainer: bookEntry.maintainer,
-      versions: onchain.map((v) => ({
-        release: v.release,
-        build: v.build,
-        setup: v.setup,
-        ...(v.implementation ? { implementation: v.implementation } : {}),
-      })),
+      versions: onchain.map(toPluginVersion),
     };
 
     let summary: string;
@@ -121,11 +116,5 @@ function extractFlag(args: string[], flag: string): boolean {
   return true;
 }
 
-function firstZodError(err: { issues: { path: (string | number)[]; message: string }[] }): string {
-  const i = err.issues[0];
-  if (!i) return "unknown parse error";
-  const p = i.path.length ? i.path.join(".") : "(root)";
-  return `${p}: ${i.message}`;
-}
 
 await main();

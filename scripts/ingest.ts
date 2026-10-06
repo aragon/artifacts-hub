@@ -14,7 +14,8 @@ import { resolve } from "@std/path";
 import { createPublicClient, http, parseAbi, type Address, type Hex } from "viem";
 import { AddressBook } from "./schema.ts";
 import { readProtocolFactory, readProtocolVersion } from "./lib/read-protocol-factory.ts";
-import { readAllPluginRepoVersions } from "./lib/read-plugin-repo.ts";
+import { readAllPluginRepoVersions, toPluginVersion } from "./lib/read-plugin-repo.ts";
+import { stampCurrent } from "./lib/merge-plugin.ts";
 import { resolveEns } from "./lib/resolve-ens.ts";
 import { ensForSlug } from "./lib/plugin-catalog.ts";
 
@@ -78,7 +79,6 @@ async function main() {
         },
         helpers: {
           globalExecutor: d.globalExecutor,
-          placeholderSetup: d.placeholderSetup,
         },
         current: true,
       }],
@@ -109,13 +109,8 @@ async function main() {
     };
     try {
       const versions = await readAllPluginRepoVersions(rpc, repo);
-      plugin.versions = versions.map((v, i) => ({
-        release: v.release,
-        build: v.build,
-        setup: v.setup,
-        implementation: v.implementation,
-        ...(i === versions.length - 1 ? { current: true } : {}),
-      }));
+      plugin.versions = versions.map(toPluginVersion);
+      stampCurrent(plugin.versions);
     } catch (e) {
       console.error(`  ! ${slug}.versions: ${(e as Error).message}`);
     }

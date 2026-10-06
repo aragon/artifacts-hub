@@ -9,6 +9,11 @@ help:
 validate:
     cd scripts && deno task validate
 
+# Run the scripts' unit tests
+[group('audit')]
+test:
+    cd scripts && deno task test
+
 # Report per-network coverage grouped by status + per-section gap summary
 [group('audit')]
 coverage *args:

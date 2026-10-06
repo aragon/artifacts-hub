@@ -14,8 +14,7 @@
           "pluginSetupProcessor": "0xfd4dbd760e253b7ee0ce81d47946dadd2531f1fc"
         },
         "helpers": {
-          "globalExecutor": "0x7b73f551167abfe2585a6bae6def948489c1855c",
-          "placeholderSetup": "0x610cbbe9c9cdd5c9b03afbab19300c4656238f08"
+          "globalExecutor": "0x7b73f551167abfe2585a6bae6def948489c1855c"
         },
         "current": true
       }
@@ -41,13 +40,13 @@
           "release": 1,
           "build": 1,
           "setup": "0x610cbbe9c9cdd5c9b03afbab19300c4656238f08",
-          "implementation": "0x0000000000000000000000000000000000000000"
+          "placeholder": true
         },
         {
           "release": 1,
           "build": 2,
           "setup": "0x610cbbe9c9cdd5c9b03afbab19300c4656238f08",
-          "implementation": "0x0000000000000000000000000000000000000000"
+          "placeholder": true
         },
         {
           "release": 1,
@@ -107,7 +106,7 @@
           "release": 1,
           "build": 1,
           "setup": "0x610cbbe9c9cdd5c9b03afbab19300c4656238f08",
-          "implementation": "0x0000000000000000000000000000000000000000"
+          "placeholder": true
         },
         {
           "release": 1,
@@ -127,13 +126,13 @@
           "release": 1,
           "build": 1,
           "setup": "0x610cbbe9c9cdd5c9b03afbab19300c4656238f08",
-          "implementation": "0x0000000000000000000000000000000000000000"
+          "placeholder": true
         },
         {
           "release": 1,
           "build": 2,
           "setup": "0x610cbbe9c9cdd5c9b03afbab19300c4656238f08",
-          "implementation": "0x0000000000000000000000000000000000000000"
+          "placeholder": true
         },
         {
           "release": 1,

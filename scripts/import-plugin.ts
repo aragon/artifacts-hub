@@ -19,7 +19,7 @@
 //     lowercased (schema does the transform).
 
 import { resolve } from "@std/path";
-import { AddressBook, PluginArtifact } from "./schema.ts";
+import { AddressBook, PluginArtifact, firstZodError } from "./schema.ts";
 import { mergePlugin, MergeError } from "./lib/merge-plugin.ts";
 
 const HERE = import.meta.dirname!;
@@ -146,12 +146,6 @@ async function readJson(path: string): Promise<unknown> {
   return JSON.parse(await Deno.readTextFile(path));
 }
 
-function firstZodError(err: { issues: { path: (string | number)[]; message: string }[] }): string {
-  const i = err.issues[0];
-  if (!i) return "unknown parse error";
-  const p = i.path.length ? i.path.join(".") : "(root)";
-  return `${p}: ${i.message}`;
-}
 
 function relDisplay(p: string): string {
   const cwd = Deno.cwd();

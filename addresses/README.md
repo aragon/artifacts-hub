@@ -24,8 +24,9 @@ Every file conforms to the `AddressBook` schema defined in
 | `conditions.factories[]` | versioned condition factories on this chain |
 | `deployers.*`        | one-shot deployment tools (e.g. `protocolFactory`) |
 
-Addresses are lowercased on parse. Arrays are ascending; the last entry carries
-`current: true`.
+Addresses are lowercased on parse. Arrays are ascending; the highest
+non-placeholder entry carries `current: true`. Plugin builds that point to the
+OSx `PlaceholderSetup` carry `placeholder: true` (see the root README).
 
 ## Adding or updating a chain
 

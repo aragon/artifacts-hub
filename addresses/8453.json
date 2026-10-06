@@ -60,7 +60,7 @@
           "release": 1,
           "build": 1,
           "setup": "0xfcabf5b75473447e4fde4043f8255b2dadbf0782",
-          "implementation": "0x0000000000000000000000000000000000000000"
+          "placeholder": true
         },
         {
           "release": 1,
@@ -86,7 +86,7 @@
           "release": 1,
           "build": 1,
           "setup": "0xfcabf5b75473447e4fde4043f8255b2dadbf0782",
-          "implementation": "0x0000000000000000000000000000000000000000"
+          "placeholder": true
         },
         {
           "release": 1,

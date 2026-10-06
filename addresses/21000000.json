@@ -15,8 +15,7 @@
           "pluginSetupProcessor": "0x63054ebe143cfaa5e463256462a6fc56c6fc56d4"
         },
         "helpers": {
-          "globalExecutor": "0xcfe83d0079c9455ef1e11864d701d6e1bdf8ff2a",
-          "placeholderSetup": "0xdf184703d099c4cfe31021d39e5ff88c63394b88"
+          "globalExecutor": "0xcfe83d0079c9455ef1e11864d701d6e1bdf8ff2a"
         },
         "current": true
       }
