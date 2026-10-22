@@ -24,7 +24,7 @@ Every file conforms to the `AddressBook` schema defined in
 | `conditions.factories[]` | versioned condition factories on this chain |
 | `deployers.*`        | one-shot deployment tools (e.g. `protocolFactory`) |
 
-Addresses are lowercased on parse. Arrays are ascending; the highest
+Addresses are stored EIP-55 checksummed (`just validate` enforces it). Arrays are ascending; the highest
 non-placeholder entry carries `current: true`. Plugin builds that point to the
 OSx `PlaceholderSetup` carry `placeholder: true` (see the root README).
 

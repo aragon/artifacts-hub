@@ -71,6 +71,9 @@ export function mergePlugin(
   const noop = perVersion.filter((s) => s === "noop").length;
   const otherAdded = otherChanges.filter((s) => s === "added").length;
 
+  // Callers skip the write on exactly "no-op", so any unchanged merge must say so.
+  if (!added && !updated && !otherAdded) return "no-op";
+
   if (added > 0 || updated > 0) {
     existing.versions = sortVersions(existing.versions);
     stampCurrent(existing.versions);

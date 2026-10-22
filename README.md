@@ -67,7 +67,7 @@ Every file has the same top-level shape. Common lookups:
 | Current SafeOwner condition factory      | `conditions.factories.find(f => f.current).address` |
 | ProtocolFactory (when the chain has one) | `deployers.protocolFactory` |
 
-Addresses are lowercased on parse — never rely on checksum casing for identity. Arrays are ascending, and the current entry carries `current: true`.
+Addresses are stored EIP-55 checksummed: lowercase input is checksummed on parse, a wrong mixed-case checksum is rejected, and `just validate` fails on any unchecksummed address. Still compare them case-insensitively. Arrays are ascending, and the current entry carries `current: true`.
 
 **Placeholder builds.** Chains that start a plugin at a later build publish the earlier build numbers with the OSx `PlaceholderSetup`, so build numbers line up across chains. Those entries carry `placeholder: true`: they are not the plugin, can't be installed and are never `current`. `ingest` and `refresh-plugin` detect them on-chain (the setup reverts `prepareInstallation` with `PlaceholderSetupCannotBeUsed()`). `implementation` is omitted when a setup has none (placeholders, zkSync Admin); it is never `0x0`.
 
@@ -184,7 +184,7 @@ Invariants the script enforces (source: [`scripts/import-plugin.ts`](./scripts/i
 - **`current: true`** is derived: after any merge, only the highest non-placeholder `(release, build)` carries it. `versions[]` is re-sorted ascending.
 - **Missing fields are adopted.** A known version that lacks `implementation` or `placeholder: true` picks it up from the incoming data (reported as an update). A placeholder with an implementation in the book is a hard error.
 - Chain must be tracked (`addresses/<chainId>.json` must exist) and must **not** be marked `deprecated: true`. Ingest new chains with `just ingest` first.
-- Final book is re-parsed through Zod before writing, so addresses land canonically lowercased regardless of the artifact's casing.
+- Final book is re-parsed through Zod before writing, so addresses land EIP-55 checksummed whether the artifact was lowercase or checksummed. A wrong checksum is a hard error.
 
 Directory mode + timestamp-ascending order means re-sweeping the same folder is a total no-op — safe to run in CI on every push, or as a follow-up to a batch of deploys.
 

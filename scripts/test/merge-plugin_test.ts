@@ -36,7 +36,7 @@ Deno.test("adopting a missing implementation is an update, so refresh persists i
 
 Deno.test("an unflagged incoming build doesn't clear the book's flag", () => {
   const b = book([v(1, { placeholder: true }), v(2, { current: true })]);
-  assertEquals(mergePlugin(b, "spp", { repo, versions: [v(1), v(2)] }), "2 no-op");
+  assertEquals(mergePlugin(b, "spp", { repo, versions: [v(1), v(2)] }), "no-op");
   assertEquals(b.plugins.spp.versions[0].placeholder, true);
 });
 
@@ -52,4 +52,18 @@ Deno.test("new builds: placeholders appended, current stays on the real highest 
   mergePlugin(b, "spp", { repo, versions: [v(3), v(1, { placeholder: true }), v(2, { placeholder: true })] });
   assertEquals(b.plugins.spp.versions.map((x) => x.build), [1, 2, 3]);
   assertEquals(currentBuild(b), 3);
+});
+
+// Callers skip the write only on exactly "no-op".
+Deno.test("re-merging what the book already has is exactly a no-op, auxiliaries included", () => {
+  const other = { helper: a(70) };
+  const b = book([v(1, { implementation: a(50), current: true })]);
+  b.plugins.spp.other = { ...other };
+  assertEquals(mergePlugin(b, "spp", { repo, versions: [v(1, { implementation: a(50), current: true })], other }), "no-op");
+});
+
+Deno.test("a new auxiliary alone is a change, not a no-op", () => {
+  const b = book([v(1, { current: true })]);
+  assertEquals(mergePlugin(b, "spp", { repo, versions: [v(1)], other: { helper: a(70) } }), "1 no-op, +1 auxiliary");
+  assertEquals(b.plugins.spp.other, { helper: a(70) });
 });
