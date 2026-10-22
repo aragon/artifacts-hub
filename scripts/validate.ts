@@ -1,6 +1,6 @@
 import { walk } from "@std/fs";
 import { relative, resolve } from "@std/path";
-import { AddressBook } from "./schema.ts";
+import { AddressBook, findUnchecksummed } from "./schema.ts";
 
 const ADDRESSES_DIR = resolve(import.meta.dirname!, "..", "addresses");
 
@@ -49,7 +49,12 @@ for (const g of ordered) {
     continue;
   }
   const parsed = AddressBook.safeParse(raw);
-  if (parsed.success) {
+  const unchecksummed = parsed.success ? findUnchecksummed(raw) : [];
+  if (parsed.success && unchecksummed.length) {
+    console.error(formatLine("fail", g));
+    for (const path of unchecksummed) console.error(`        ${path}: not EIP-55 checksummed`);
+    fail++;
+  } else if (parsed.success) {
     console.log(formatLine("ok", g));
     ok++;
   } else {

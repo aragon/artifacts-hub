@@ -6,163 +6,163 @@
       {
         "protocolVersion": "1.4.0",
         "core": {
-          "daoBase": "0x037817b0c09b02dac0f2b66dac26e75e2999c15c",
-          "daoFactory": "0xdd68d6b46b887acb795ecc3fc7bb3fef2dfebf8f",
-          "daoRegistry": "0xa81ebd1165cbe602f2bb28c956b180202f7049ef",
-          "pluginRepoFactory": "0xca4d07e1fd640998149ed3702b0576ef8ba0d124",
-          "pluginRepoRegistry": "0x16eebbd27860f7e3c5413fcc560da8d048944ae0",
-          "pluginSetupProcessor": "0xd39fd78987000c1aa96209d76bec576f31dbc9be"
+          "daoBase": "0x037817B0C09b02DAc0F2B66dAc26e75e2999C15c",
+          "daoFactory": "0xdD68D6b46b887AcB795eCC3Fc7bb3fEf2Dfebf8f",
+          "daoRegistry": "0xa81Ebd1165cBE602f2BB28C956b180202f7049Ef",
+          "pluginRepoFactory": "0xcA4d07E1fd640998149Ed3702B0576eF8bA0d124",
+          "pluginRepoRegistry": "0x16eEbBD27860F7E3c5413fcC560dA8D048944ae0",
+          "pluginSetupProcessor": "0xD39Fd78987000C1aa96209d76bec576F31DbC9bE"
         },
         "helpers": {
-          "globalExecutor": "0xcf34b77813f5d5daba0a6f085bf0911e00e7b99a"
+          "globalExecutor": "0xcF34b77813f5d5daBa0A6F085bf0911e00E7b99A"
         },
         "current": true
       }
     ]
   },
   "management": {
-    "dao": "0x0d2efc71d53dc73cb2bc0825ab90e4039426f68e",
-    "daoMultisig": "0x53175d75a0b0937268f9a0efd2217e6a99a4e5a7"
+    "dao": "0x0D2eFC71d53dc73cB2bc0825ab90E4039426F68e",
+    "daoMultisig": "0x53175D75A0b0937268f9a0EfD2217e6a99a4E5A7"
   },
   "ens": {
-    "registry": "0x0ac9cc8f27b13a0389039ca62462e6e34d5bd85d",
-    "daoSubdomainRegistrar": "0x88ed9df6d3784f78a28017cb189af6b810705249",
-    "pluginSubdomainRegistrar": "0xa044d314dd406aa7e81e717489ed237d31dab765",
-    "publicResolver": "0xccf0a006e88fd7a9b5dab04310f4223d04128672"
+    "registry": "0x0AC9Cc8f27B13A0389039cA62462E6E34d5BD85d",
+    "daoSubdomainRegistrar": "0x88ED9dF6d3784F78a28017CB189AF6b810705249",
+    "pluginSubdomainRegistrar": "0xa044D314dd406Aa7e81e717489ED237d31DaB765",
+    "publicResolver": "0xCCF0A006e88FD7a9B5dAB04310f4223d04128672"
   },
   "plugins": {
     "lock-to-vote": {
-      "repo": "0x43f3f0a229c69340e49104ea5202ae9e25dec06b",
+      "repo": "0x43F3F0A229c69340E49104EA5202ae9e25DEc06B",
       "ens": "lock-2-vote.plugin.dao.eth",
-      "maintainer": "0x0d2efc71d53dc73cb2bc0825ab90e4039426f68e",
+      "maintainer": "0x0D2eFC71d53dc73cB2bc0825ab90E4039426F68e",
       "versions": [
         {
           "release": 1,
           "build": 1,
-          "setup": "0x3ab0866601fd82f255432d2bb78e37c115537ab5",
-          "implementation": "0xf1b3ed4f41509f1661def5518d198e0b0257ffe1",
+          "setup": "0x3AB0866601fD82f255432D2Bb78E37C115537aB5",
+          "implementation": "0xF1b3Ed4f41509f1661def5518d198E0B0257FFE1",
           "current": true
         }
       ]
     },
     "token-voting": {
-      "repo": "0x62c82a443692a1be4d0421b1e4678f0dff8f3c1b",
+      "repo": "0x62c82a443692A1bE4D0421b1E4678F0dff8F3c1B",
       "ens": "token-voting.plugin.dao.eth",
-      "maintainer": "0x0d2efc71d53dc73cb2bc0825ab90e4039426f68e",
+      "maintainer": "0x0D2eFC71d53dc73cB2bc0825ab90E4039426F68e",
       "versions": [
         {
           "release": 1,
           "build": 1,
-          "setup": "0x7f190dc1797036c583a8eb21618759e80e1078bf",
+          "setup": "0x7f190Dc1797036c583a8EB21618759e80E1078bf",
           "placeholder": true
         },
         {
           "release": 1,
           "build": 2,
-          "setup": "0x7f190dc1797036c583a8eb21618759e80e1078bf",
+          "setup": "0x7f190Dc1797036c583a8EB21618759e80E1078bf",
           "placeholder": true
         },
         {
           "release": 1,
           "build": 3,
-          "setup": "0x8be2ee0f8e91fd62eba8ce80facca49af4b21856",
-          "implementation": "0x5ab6bdf46e66b62184c7f3e1202776e4b9cc23cc"
+          "setup": "0x8be2EE0F8e91fD62EbA8ce80FAcCA49Af4B21856",
+          "implementation": "0x5AB6bdF46e66b62184c7F3e1202776e4b9Cc23Cc"
         },
         {
           "release": 1,
           "build": 4,
-          "setup": "0x5b30039d497eda801b1abc993a44b35689b27656",
-          "implementation": "0x149aaef5ffda32d6ac2ce127d04ff0cf51b4a4ad",
+          "setup": "0x5B30039D497EdA801B1ABC993a44B35689b27656",
+          "implementation": "0x149aaef5Ffda32D6AC2cE127d04ff0Cf51b4A4AD",
           "current": true
         }
       ],
       "other": {
-        "governanceERC20": "0xe2bd48f86c7e3f6b7bc52fcb3f5d2d2c020faeda",
-        "governanceWrappedERC20": "0x39c2de72b595a9a985cffe9c315bdedd8965dafb"
+        "governanceERC20": "0xE2BD48f86c7e3f6b7BC52fcB3F5d2d2c020faeda",
+        "governanceWrappedERC20": "0x39c2dE72b595A9A985CfFe9c315bdEdd8965dafB"
       }
     },
     "admin": {
-      "repo": "0x339541b013f0edaa5e415788b094b7647b43c921",
+      "repo": "0x339541B013F0eDAA5e415788B094B7647B43c921",
       "ens": "admin.plugin.dao.eth",
-      "maintainer": "0x0d2efc71d53dc73cb2bc0825ab90e4039426f68e",
+      "maintainer": "0x0D2eFC71d53dc73cB2bc0825ab90E4039426F68e",
       "versions": [
         {
           "release": 1,
           "build": 1,
-          "setup": "0x7f190dc1797036c583a8eb21618759e80e1078bf",
+          "setup": "0x7f190Dc1797036c583a8EB21618759e80E1078bf",
           "placeholder": true
         },
         {
           "release": 1,
           "build": 2,
-          "setup": "0x51dc056df1547881c16bf3e1ccfd999c915c51fb",
-          "implementation": "0xf26259e7247300c9d597e7e926b0f09fec9efc83",
+          "setup": "0x51dc056DF1547881C16bF3e1CCfD999C915c51fb",
+          "implementation": "0xf26259e7247300C9D597E7E926b0F09fEc9Efc83",
           "current": true
         }
       ]
     },
     "multisig": {
-      "repo": "0x60c2b0b6cb2eb83349eb770f76a1c6df611e5f03",
+      "repo": "0x60C2b0B6CB2EB83349eB770f76a1C6dF611E5f03",
       "ens": "multisig.plugin.dao.eth",
-      "maintainer": "0x0d2efc71d53dc73cb2bc0825ab90e4039426f68e",
+      "maintainer": "0x0D2eFC71d53dc73cB2bc0825ab90E4039426F68e",
       "versions": [
         {
           "release": 1,
           "build": 1,
-          "setup": "0x7f190dc1797036c583a8eb21618759e80e1078bf",
+          "setup": "0x7f190Dc1797036c583a8EB21618759e80E1078bf",
           "placeholder": true
         },
         {
           "release": 1,
           "build": 2,
-          "setup": "0x7f190dc1797036c583a8eb21618759e80e1078bf",
+          "setup": "0x7f190Dc1797036c583a8EB21618759e80E1078bf",
           "placeholder": true
         },
         {
           "release": 1,
           "build": 3,
-          "setup": "0xbafa545687c786ecf4c5ad8bf917ca006bd3d964",
-          "implementation": "0xcd3352bf093328a4ac7a54710c23c6342eac4a39",
+          "setup": "0xbaFa545687C786eCF4C5Ad8Bf917CA006bd3D964",
+          "implementation": "0xcd3352Bf093328A4aC7A54710c23c6342eaC4A39",
           "current": true
         }
       ]
     },
     "spp": {
-      "repo": "0x48cebbc661fafcfc274ce2034a04d459ba774e3d",
+      "repo": "0x48CEBbc661FafCFC274Ce2034a04d459ba774E3D",
       "ens": "staged-proposal-processor.plugin.dao.eth",
-      "maintainer": "0x0d2efc71d53dc73cb2bc0825ab90e4039426f68e",
+      "maintainer": "0x0D2eFC71d53dc73cB2bc0825ab90E4039426F68e",
       "versions": [
         {
           "release": 1,
           "build": 1,
-          "setup": "0x2b8d2b24947eb433fab3bc6e405725dd9ebbb13c",
-          "implementation": "0xfca5b9bbe4f2a8b1bbcc0a6b32e9df53c6b7c135"
+          "setup": "0x2B8D2B24947eb433FAb3BC6E405725dd9eBBb13c",
+          "implementation": "0xfCa5B9BBE4F2A8b1BbcC0A6B32e9Df53c6B7C135"
         },
         {
           "release": 1,
           "build": 2,
-          "setup": "0x74cd976f7c5b5a684234d70221f44935d10e208b",
-          "implementation": "0xfca5b9bbe4f2a8b1bbcc0a6b32e9df53c6b7c135"
+          "setup": "0x74cd976f7c5b5a684234d70221F44935d10e208B",
+          "implementation": "0xfCa5B9BBE4F2A8b1BbcC0A6B32e9Df53c6B7C135"
         },
         {
           "release": 1,
           "build": 3,
-          "setup": "0xa731c9a876a2c4cfb40856dc47d12c5339f66596",
-          "implementation": "0x938da6b9b16078a999e33fe4e37b243c40c7680b",
+          "setup": "0xA731C9A876a2c4cfB40856dc47d12C5339F66596",
+          "implementation": "0x938DA6B9B16078a999E33FE4E37b243C40c7680b",
           "current": true
         }
       ]
     },
     "crosschain": {
-      "repo": "0x1ce75713e56cdff76850fb0f45539ca240522e80",
+      "repo": "0x1cE75713E56CdFf76850Fb0F45539cA240522e80",
       "ens": "crosschain.plugin.dao.eth",
-      "maintainer": "0x0d2efc71d53dc73cb2bc0825ab90e4039426f68e",
+      "maintainer": "0x0D2eFC71d53dc73cB2bc0825ab90E4039426F68e",
       "versions": [
         {
           "release": 1,
           "build": 1,
-          "setup": "0x89442c2c351c9c3005fc0ae462e31a6b2ed09854",
-          "implementation": "0x2339a5e356fa1f2ca3614f211225f1c59108bf0d",
+          "setup": "0x89442C2c351C9c3005fc0ae462E31A6B2ed09854",
+          "implementation": "0x2339a5e356Fa1f2ca3614f211225F1c59108bf0d",
           "current": true
         }
       ]
@@ -171,12 +171,12 @@
   "conditions": {
     "factories": [
       {
-        "address": "0x988b0e1542d5e9494897778ebc444e9ffda58ddb",
+        "address": "0x988B0e1542d5e9494897778ebc444E9FfDa58Ddb",
         "current": true
       }
     ]
   },
   "deployers": {
-    "protocolFactory": "0x7287715c632e32b415b172a978b18f4bfba7997c"
+    "protocolFactory": "0x7287715c632e32b415b172A978B18f4bFba7997c"
   }
 }

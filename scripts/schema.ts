@@ -1,11 +1,26 @@
 import { z } from "zod";
+import { getAddress, isAddress } from "viem";
 
-// Ethereum address. Lowercased on parse: checksums are display-only, not identity,
-// so we normalise here to make cross-file comparison trivial.
+// Ethereum address, stored EIP-55 checksummed. All-lowercase input is accepted
+// and checksummed; mixed-case input must carry a valid checksum (a wrong one is
+// most likely a typo). Compare addresses case-insensitively anyway.
 export const Address = z
   .string()
   .regex(/^0x[0-9a-fA-F]{40}$/, "must be a 20-byte hex address")
-  .transform((s) => s.toLowerCase());
+  .refine((s) => isAddress(s, { strict: true }), "invalid EIP-55 checksum")
+  .transform((s): string => getAddress(s));
+
+// Paths of address strings in `value` that are not stored in their checksummed
+// form. Parsing would fix them silently, so `validate` reports them instead.
+export function findUnchecksummed(value: unknown, path = ""): string[] {
+  if (typeof value === "string") {
+    return /^0x[0-9a-fA-F]{40}$/.test(value) && value !== getAddress(value) ? [path || "(root)"] : [];
+  }
+  if (value && typeof value === "object") {
+    return Object.entries(value).flatMap(([k, v]) => findUnchecksummed(v, path ? `${path}.${k}` : k));
+  }
+  return [];
+}
 
 export const ChainId = z.number().int().positive();
 

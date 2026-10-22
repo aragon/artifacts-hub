@@ -16,7 +16,7 @@
 //   - Chain must be tracked (addresses/<chainId>.json must exist) and NOT
 //     marked `deprecated: true`.
 //   - Final book must Zod-validate before writing; addresses are stored
-//     lowercased (schema does the transform).
+//     EIP-55 checksummed (schema does the transform).
 
 import { resolve } from "@std/path";
 import { AddressBook, PluginArtifact, firstZodError } from "./schema.ts";
@@ -126,7 +126,7 @@ async function importOne(artifactPath: string, dryRun: boolean): Promise<void> {
     throw new ImportError(e instanceof MergeError ? e.message : String(e));
   }
 
-  // Round-trip through Zod so addresses land canonically lowercased.
+  // Round-trip through Zod so addresses land EIP-55 checksummed.
   const validated = AddressBook.parse(book);
   if (dryRun) {
     console.log(`  ~ ${relDisplay(artifactPath)} → plugins.${art.slug}: ${summary}  (dry-run)`);
