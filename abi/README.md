@@ -37,7 +37,7 @@ Never edit generated files; edit `sources.json` and run `just import-abi`.
 | `spp`               | `aragon/staged-proposal-processor-plugin`       |
 | `lock-to-vote`      | `aragon/lock-to-vote-plugin`                    |
 | `crosschain`        | `aragon/crosschain`                             |
-| `conditions`        | `aragon/condition-library`                      |
+| `conditions`        | `aragon/conditions`                             |
 | `protocol-factory`  | `aragon/protocol-factory`                       |
 
 Builds before the plugin repos split out of `aragon/osx` (admin 1.1,
