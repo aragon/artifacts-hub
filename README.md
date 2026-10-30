@@ -96,7 +96,7 @@ One folder per source component; one JSON per contract. Slugs match `addresses/`
 | `spp`               | `aragon/staged-proposal-processor-plugin`   |
 | `lock-to-vote`      | `aragon/lock-to-vote-plugin`                |
 | `crosschain`        | `aragon/crosschain`                         |
-| `conditions`        | `aragon/condition-library`                  |
+| `conditions`        | `aragon/conditions`                         |
 | `protocol-factory`  | `aragon/protocol-factory`                   |
 
 Versions live next to the latest:

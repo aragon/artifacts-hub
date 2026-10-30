@@ -4,7 +4,7 @@
     "v1.2": { "source": "npm:@aragon/admin-plugin-artifacts@1.2.6" }
   },
   "conditions": {
-    "v1.1": { "source": "git:https://github.com/aragon/condition-library#7198a02ae1e62f3297416feeca64159bf69802c7" }
+    "v1.1": { "source": "git:https://github.com/aragon/conditions#7198a02ae1e62f3297416feeca64159bf69802c7" }
   },
   "crosschain": {
     "v1.1": { "source": "git:https://github.com/aragon/crosschain#aa1fdfd9c9679cd1b99afcdfa2ea2ca2496c82d9" }
