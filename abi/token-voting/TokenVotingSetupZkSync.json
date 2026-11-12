@@ -1,7 +1,13 @@
 [
   {
     "type": "constructor",
-    "inputs": [],
+    "inputs": [
+      {
+        "name": "_tokenVotingBase",
+        "type": "address",
+        "internalType": "contract TokenVoting"
+      }
+    ],
     "stateMutability": "nonpayable"
   },
   {
@@ -537,6 +543,11 @@
       }
     ],
     "stateMutability": "view"
+  },
+  {
+    "type": "error",
+    "name": "InvalidImplementation",
+    "inputs": []
   },
   {
     "type": "error",
