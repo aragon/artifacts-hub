@@ -3,6 +3,11 @@
     "type": "constructor",
     "inputs": [
       {
+        "name": "_tokenVotingBase",
+        "type": "address",
+        "internalType": "contract TokenVoting"
+      },
+      {
         "name": "_governanceERC20Base",
         "type": "address",
         "internalType": "contract GovernanceERC20"
@@ -574,6 +579,11 @@
       }
     ],
     "stateMutability": "view"
+  },
+  {
+    "type": "error",
+    "name": "InvalidImplementation",
+    "inputs": []
   },
   {
     "type": "error",
