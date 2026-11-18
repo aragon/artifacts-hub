@@ -104,7 +104,13 @@
           "release": 1,
           "build": 4,
           "setup": "0xC7Fcf977a072e991a62A7308d52E048E7692153e",
-          "implementation": "0x51347A2DA9D32024d6Cb55db4D777aE7444e1abc",
+          "implementation": "0x51347A2DA9D32024d6Cb55db4D777aE7444e1abc"
+        },
+        {
+          "release": 1,
+          "build": 5,
+          "setup": "0xeb1b67485c7F801799664094AE3ae7e0ecfef517",
+          "implementation": "0xdecc07d5689a039AdD0500a860F9c6aADB87a5b4",
           "current": true
         }
       ],

@@ -118,7 +118,13 @@
           "release": 1,
           "build": 4,
           "setup": "0xFbe859AfB56a51cbed42Ea8dEEF490e0fFbC21B4",
-          "implementation": "0xfe3717b672e909EEc371BC1C42f89c7090ba40FD",
+          "implementation": "0xfe3717b672e909EEc371BC1C42f89c7090ba40FD"
+        },
+        {
+          "release": 1,
+          "build": 5,
+          "setup": "0x2c4fD17629Cdd7d8976a1bBEdcfd410735823df2",
+          "implementation": "0xCa765Fe97C4E18c35A2335F90b85A764c4775D9d",
           "current": true
         }
       ],
